@@ -141,15 +141,9 @@
                                                 <div class="mb-3">
                                                     <label class="form-label" for="language">Language</label>
                                                     <select name="langauge" id="language" class="form-select" multiple>
-                                                        <option value="English" selected>English</option>
-                                                        <option value="Chinese">Chinese</option>
-                                                        <option value="French">French</option>
-                                                        <option value="German">German</option>
-                                                        <option value="Italian">Italian</option>
-                                                        <option value="Japanese">Japanese</option>
-                                                        <option value="Portuguese">Portuguese</option>
-                                                        <option value="Russian">Russian</option>
-                                                        <option value="Spanish">Spanish</option>
+                                                        @foreach ($languages as $lang)
+                                                            <option @if ($lang['selected']) selected @endif value="{{ $lang['name'] }}">{{ $lang['name'] }} ({{ $lang['code'] }})</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -158,180 +152,24 @@
                                                     <label class="form-label">Genre</label>
                                                     <select multiple class="form-select" name="genre" id="genre">
                                                         <optgroup label="Technical">
-                                                            <option value="3D Game">3D Game</option>
-                                                            <option value="3DCG">3DCG</option>
-                                                            <option value="2D Game">2D Game</option>
-                                                            <option value="2DCG">2DCG</option>
-                                                            <option value="AI CG">AI CG</option>
-                                                            <option value="Animated">Animated</option>
-                                                            <option value="Censored">Censored</option>
-                                                            <option value="Character Creation">Character
-                                                                Creation</option>
-                                                            <option value="Kinetic Novel">Kinetic Novel</option>
-                                                            <option value="Japanese Game">Japanese Game</option>
-                                                            <option value="Male Protagonist">Male Protagonist
-                                                            </option>
-                                                            <option value="Female Protagonist">Female
-                                                                Protagonist</option>
-                                                            <option value="Futa/Trans Protagonist">Futa/Trans
-                                                                Protagonist</option>
-                                                            <option value="Mobile Game">Mobile Game</option>
-                                                            <option value="Multiple Endings">Multiple Endings
-                                                            </option>
-                                                            <option value="Multiple Protagonist">Multiple
-                                                                Protagonist</option>
-                                                            <option value="Real Porn">Real Porn</option>
-                                                            <option value="Text Based">Text Based</option>
-                                                            <option value="Virtual Reality">Virtual Reality
-                                                            </option>
-                                                            <option value="Voiced">Voiced</option>
+                                                            @foreach ($technical as $tech)
+                                                                <option value="{{ $tech->name }}">{{ $tech->name }}</option>
+                                                            @endforeach
                                                         </optgroup>
                                                         <optgroup label="Non-Sexual">
-                                                            <option value="Adventure">Adventure</option>
-                                                            <option value="Combat">Combat</option>
-                                                            <option value="Cosplay">Cosplay</option>
-                                                            <option value="Dating Sim">Dating Sim</option>
-                                                            <option value="Dystopian setting">Dystopian setting
-                                                            </option>
-                                                            <option value="Fantasy">Fantasy</option>
-                                                            <option value="Graphic violence">Graphic violence
-                                                            </option>
-                                                            <option value="Horror">Horror</option>
-                                                            <option value="Humor">Humor</option>
-                                                            <option value="Management">Management</option>
-                                                            <option value="Mind control">Mind control</option>
-                                                            <option value="Monster">Monster</option>
-                                                            <option value="Monster Girl">Monster Girl</option>
-                                                            <option value="No Sexual Content">No Sexual Content
-                                                            </option>
-                                                            <option value="Paranormal">Paranormal</option>
-                                                            <option value="Parody">Parody</option>
-                                                            <option value="Platformer">Platformer</option>
-                                                            <option value="Point & Click">Point & Click</option>
-                                                            <option value="Possession">Possession</option>
-                                                            <option value="PoV">PoV</option>
-                                                            <option value="Puzzle">Puzzle</option>
-                                                            <option value="Religion">Religion</option>
-                                                            <option value="Romance">Romance</option>
-                                                            <option value="Rpg">Rpg</option>
-                                                            <option value="Sandbox">Sandbox</option>
-                                                            <option value="School setting">School setting
-                                                            </option>
-                                                            <option value="Sci-fi">Sci-fi</option>
-                                                            <option value="Shooter">Shooter</option>
-                                                            <option value="Side-scroller">Side-scroller</option>
-                                                            <option value="Simulator">Simulator</option>
-                                                            <option value="Strategy">Strategy</option>
-                                                            <option value="Superpowers">Superpowers</option>
-                                                            <option value="Trainer">Trainer</option>
-                                                            <option value="Turn based combat">Turn based combat
-                                                            </option>
-                                                            <option value="Twins">Twins</option>
+                                                            < @foreach ($nonsexual as $nonsex)
+                                                            <option value="{{ $nonsex->name }}">{{ $nonsex->name }}</option>
+                                                        @endforeach
                                                         </optgroup>
                                                         <optgroup label="Sexual">
-                                                            <option value="Anal Sex">Anal Sex</option>
-                                                            <option value="Ahegao">Ahegao</option>
-                                                            <option value="Bdsm">Bdsm</option>
-                                                            <option value="Bestiality">Bestiality</option>
-                                                            <option value="Big Ass">Big Ass</option>
-                                                            <option value="Big Tits">Big Tits</option>
-                                                            <option value="Blackmail">Blackmail</option>
-                                                            <option value="Bukkake">Bukkake</option>
-                                                            <option value="Cheating">Cheating</option>
-                                                            <option value="Corruption">Corruption</option>
-                                                            <option value="Creampie">Creampie</option>
-                                                            <option value="Dilf">Dilf</option>
-                                                            <option value="Drugs">Drugs</option>
-                                                            <option value="Exhibitionism">Exhibitionism</option>
-                                                            <option value="Female domination">Female domination
-                                                            </option>
-                                                            <option value="Footjob">Footjob</option>
-                                                            <option value="Furry">Furry</option>
-                                                            <option value="Futa/Trans">Futa/Trans</option>
-                                                            <option value="Gay">Gay</option>
-                                                            <option value="Group sex">Group sex</option>
-                                                            <option value="Groping">Groping</option>
-                                                            <option value="Handjob">Handjob</option>
-                                                            <option value="Harem">Harem</option>
-                                                            <option value="Humiliation">Humiliation</option>
-                                                            <option value="Incest">Incest</option>
-                                                            <option value="Internal view">Internal view</option>
-                                                            <option value="Interracial">Interracial</option>
-                                                            <option value="Lactation">Lactation</option>
-                                                            <option value="Lesbian">Lesbian</option>
-                                                            <option value="Loli">Loli</option>
-                                                            <option value="Male Domination">Male Domination
-                                                            </option>
-                                                            <option value="Masturbation">Masturbation</option>
-                                                            <option value="Milf">Milf</option>
-                                                            <option value="Multiple Penetration">Multiple
-                                                                Penetration</option>
-                                                            <option value="Necrophilia">Necrophilia</option>
-                                                            <option value="Netorare">Netorare</option>
-                                                            <option value="Oral Sex">Oral Sex</option>
-                                                            <option value="Pregnancy">Pregnancy</option>
-                                                            <option value="Prostitution">Prostitution</option>
-                                                            <option value="Rape">Rape</option>
-                                                            <option value="Scat">Scat</option>
-                                                            <option value="Sex Toys">Sex Toys</option>
-                                                            <option value="Sexual Harassment">Sexual Harassment
-                                                            </option>
-                                                            <option value="Shota">Shota</option>
-                                                            <option value="Sissification">Sissification</option>
-                                                            <option value="Slave">Slave</option>
-                                                            <option value="Sleep Sex">Sleep Sex</option>
-                                                            <option value="Spanking">Spanking</option>
-                                                            <option value="Stripping">Stripping</option>
-                                                            <option value="Swinging">Swinging</option>
-                                                            <option value="Tentacles">Tentacles</option>
-                                                            <option value="Teasing">Teasing</option>
-                                                            <option value="Titfuck">Titfuck</option>
-                                                            <option value="Transformation">Transformation
-                                                            </option>
-                                                            <option value="Trap">Trap</option>
-                                                            <option value="Urination">Urination</option>
-                                                            <option value="Vaginal sex">Vaginal sex</option>
-                                                            <option value="Virgin">Virgin</option>
-                                                            <option value="Vore">Vore</option>
-                                                            <option value="Voyeurism">Voyeurism</option>
+                                                            @foreach ($sexual as $sex)
+                                                            <option value="{{ $sex->name }}">{{ $sex->name }}</option>
+                                                        @endforeach
                                                         </optgroup>
                                                         <optgroup label="Assets">
-
-                                                            <option value="Asset-addon">Asset-addon</option>
-                                                            <option value="Asset-animal">Asset-animal</option>
-                                                            <option value="Asset-animation">Asset-animation
-                                                            </option>
-                                                            <option value="Asset-audio">Asset-audio</option>
-                                                            <option value="Asset-bundle">Asset-bundle</option>
-                                                            <option value="Asset-character">Asset-character
-                                                            </option>
-                                                            <option value="Asset-clothing">Asset-clothing
-                                                            </option>
-                                                            <option value="Asset-environment">Asset-environment
-                                                            </option>
-                                                            <option value="Asset-expression">Asset-expression
-                                                            </option>
-                                                            <option value="Asset-hair">Asset-hair</option>
-                                                            <option value="Asset-hdri">Asset-hdri</option>
-                                                            <option value="Asset-light">Asset-light</option>
-                                                            <option value="Asset-morph">Asset-morph</option>
-                                                            <option value="Asset-plugin">Asset-plugin</option>
-                                                            <option value="Asset-pose">Asset-pose</option>
-                                                            <option value="Asset-prop">Asset-prop</option>
-                                                            <option value="Asset-script">Asset-script</option>
-                                                            <option value="Asset-shader">Asset-shader</option>
-                                                            <option value="Asset-texture">Asset-texture</option>
-                                                            <option value="Asset-utility">Asset-utility</option>
-                                                            <option value="Asset-vehicle">Asset-vehicle</option>
-                                                            <option value="Asset-ai-shoujo">Asset-ai-shoujo
-                                                            </option>
-                                                            <option value="Asset-honey-select">
-                                                                Asset-honey-select</option>
-                                                            <option value="Asset-honey-select2">
-                                                                Asset-honey-select2</option>
-                                                            <option value="Asset-koikatu">Asset-koikatu</option>
-                                                            <option value="Asset-playclub">Asset-playclub
-                                                            </option>
+                                                            @foreach ($assets as $asset)
+                                                            <option value="{{ $asset->name }}">{{ $asset->name }}</option>
+                                                        @endforeach
                                                         </optgroup>
                                                     </select>
                                                 </div>
@@ -341,11 +179,9 @@
                                                     <label for="os-sys" class="form-label">Operating
                                                         System</label>
                                                     <select name="os_sys" id="os-sys" multiple class="form-select">
-                                                        <option value="Windows">Windows</option>
-                                                        <option value="macOS">macOS</option>
-                                                        <option value="Android">Android</option>
-                                                        <option value="Linux">Linux</option>
-                                                        <option value="Other">Other</option>
+                                                        @foreach ($os as $o)
+                                                            <option value="{{ $o['name'] }}">{{ $o['name'] }}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
@@ -356,15 +192,9 @@
                                                     <label class="form-label" for="voiced-lang">Voiced
                                                         Language</label>
                                                     <select name="voiced" id="voiced-lang" class="form-select" multiple>
-                                                        <option value="English">English</option>
-                                                        <option value="Chinese">Chinese</option>
-                                                        <option value="French">French</option>
-                                                        <option value="German">German</option>
-                                                        <option value="Italian">Italian</option>
-                                                        <option value="Japanese">Japanese</option>
-                                                        <option value="Portuguese">Portuguese</option>
-                                                        <option value="Russian">Russian</option>
-                                                        <option value="Spanish">Spanish</option>
+                                                        @foreach ($languages as $lang)
+                                                            <option value="{{ $lang['name'] }}">{{ $lang['name'] }} ({{ $lang['code'] }})</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
