@@ -1,0 +1,46 @@
+{
+	"folders": [
+		
+		{
+			"name": "Controllers",
+			"path": "./app/Http/Controllers"
+		},
+		{
+			"name": "Models",
+			"path": "./app/Models"
+		},
+		{
+			"name": "Middleware",
+			"path": "./app/Http/Middleware"
+		},
+		{
+			"name": "Migrations",
+			"path": "./database/migrations"
+		},
+		{
+			"name": "Factories",
+			"path": "./database/factories"
+		},
+		{
+			"name": "Seeders",
+			"path": "./database/seeders"
+		},
+		{
+			"name": "Views",
+			"path": "./resources/views"
+		},
+		{
+			"name": "Routes",
+			"path": "./routes"
+		},
+		{
+			"name": "Config",
+			"path": "./config"
+		},
+		{
+			"name": "Root",
+			"path": "."
+		},
+	],
+	"settings": {}
+}

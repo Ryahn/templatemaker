@@ -1,0 +1,717 @@
+[
+    {
+        "technical": [
+            {
+                "text": "3D Game",
+                "value": "3D Game",
+                "optgroup": "technical"
+            },
+            {
+                "text": "3DCG",
+                "value": "3DCG",
+                "optgroup": "technical"
+            },
+            {
+                "text": "2D Game",
+                "value": "2D Game",
+                "optgroup": "technical"
+            },
+            {
+                "text": "2DCG",
+                "value": "2DCG",
+                "optgroup": "technical"
+            },
+            {
+                "text": "AI CG",
+                "value": "AI CG",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Animated",
+                "value": "Animated",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Censored",
+                "value": "Censored",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Character Creation",
+                "value": "Character Creation",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Kinetic Novel",
+                "value": "Kinetic Novel",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Japanese Game",
+                "value": "Japanese Game",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Male Protagonist",
+                "value": "Male Protagonist",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Female Protagonist",
+                "value": "Female Protagonist",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Futa/Trans Protagonist",
+                "value": "Futa/Trans Protagonist",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Mobile Game",
+                "value": "Mobile Game",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Multiple Endings",
+                "value": "Multiple Endings",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Multiple Protagonist",
+                "value": "Multiple Protagonist",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Real Porn",
+                "value": "Real Porn",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Text Based",
+                "value": "Text Based",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Virtual Reality",
+                "value": "Virtual Reality",
+                "optgroup": "technical"
+            },
+            {
+                "text": "Voiced",
+                "value": "Voiced",
+                "optgroup": "technical"
+            }
+        ],
+        "sexual": [
+            {
+                "text": "Anal Sex",
+                "value": "Anal Sex",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Ahegao",
+                "value": "Ahegao",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Bdsm",
+                "value": "Bdsm",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Bestiality",
+                "value": "Bestiality",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Big Ass",
+                "value": "Big Ass",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Big Tits",
+                "value": "Big Tits",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Blackmail",
+                "value": "Blackmail",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Bukkake",
+                "value": "Bukkake",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Cheating",
+                "value": "Cheating",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Corruption",
+                "value": "Corruption",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Creampie",
+                "value": "Creampie",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Dilf",
+                "value": "Dilf",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Drugs",
+                "value": "Drugs",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Exhibitionism",
+                "value": "Exhibitionism",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Female domination",
+                "value": "Female domination",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Footjob",
+                "value": "Footjob",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Furry",
+                "value": "Furry",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Futa/Trans",
+                "value": "Futa/Trans",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Gay",
+                "value": "Gay",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Group sex",
+                "value": "Group sex",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Groping",
+                "value": "Groping",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Handjob",
+                "value": "Handjob",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Harem",
+                "value": "Harem",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Humiliation",
+                "value": "Humiliation",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Incest",
+                "value": "Incest",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Internal view",
+                "value": "Internal view",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Interracial",
+                "value": "Interracial",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Lactation",
+                "value": "Lactation",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Lesbian",
+                "value": "Lesbian",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Loli",
+                "value": "Loli",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Male Domination",
+                "value": "Male Domination",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Masturbation",
+                "value": "Masturbation",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Milf",
+                "value": "Milf",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Multiple Penetration",
+                "value": "Multiple Penetration",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Necrophilia",
+                "value": "Necrophilia",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Netorare",
+                "value": "Netorare",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Oral Sex",
+                "value": "Oral Sex",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Pregnancy",
+                "value": "Pregnancy",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Prostitution",
+                "value": "Prostitution",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Rape",
+                "value": "Rape",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Scat",
+                "value": "Scat",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Sex Toys",
+                "value": "Sex Toys",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Sexual Harassment",
+                "value": "Sexual Harassment",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Shota",
+                "value": "Shota",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Sissification",
+                "value": "Sissification",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Slave",
+                "value": "Slave",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Sleep Sex",
+                "value": "Sleep Sex",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Spanking",
+                "value": "Spanking",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Stripping",
+                "value": "Stripping",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Swinging",
+                "value": "Swinging",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Tentacles",
+                "value": "Tentacles",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Teasing",
+                "value": "Teasing",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Titfuck",
+                "value": "Titfuck",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Transformation",
+                "value": "Transformation",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Trap",
+                "value": "Trap",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Urination",
+                "value": "Urination",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Vaginal sex",
+                "value": "Vaginal sex",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Virgin",
+                "value": "Virgin",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Vore",
+                "value": "Vore",
+                "optgroup": "sexual"
+            },
+            {
+                "text": "Voyeurism",
+                "value": "Voyeurism",
+                "optgroup": "sexual"
+            }
+        ],
+        "nonsexual": [
+            {
+                "text": "Adventure",
+                "value": "Adventure",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Combat",
+                "value": "Combat",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Cosplay",
+                "value": "Cosplay",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Dating Sim",
+                "value": "Dating Sim",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Dystopian setting",
+                "value": "Dystopian setting",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Fantasy",
+                "value": "Fantasy",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Graphic violence",
+                "value": "Graphic violence",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Horror",
+                "value": "Horror",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Humor",
+                "value": "Humor",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Management",
+                "value": "Management",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Mind control",
+                "value": "Mind control",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Monster",
+                "value": "Monster",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Monster Girl",
+                "value": "Monster Girl",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "No Sexual Content",
+                "value": "No Sexual Content",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Paranormal",
+                "value": "Paranormal",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Parody",
+                "value": "Parody",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Platformer",
+                "value": "Platformer",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Point & Click",
+                "value": "Point & Click",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Possession",
+                "value": "Possession",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "PoV",
+                "value": "PoV",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Puzzle",
+                "value": "Puzzle",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Religion",
+                "value": "Religion",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Romance",
+                "value": "Romance",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Rpg",
+                "value": "Rpg",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Sandbox",
+                "value": "Sandbox",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "School setting",
+                "value": "School setting",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Sci-fi",
+                "value": "Sci-fi",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Shooter",
+                "value": "Shooter",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Side-scroller",
+                "value": "Side-scroller",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Simulator",
+                "value": "Simulator",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Strategy",
+                "value": "Strategy",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Superpowers",
+                "value": "Superpowers",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Trainer",
+                "value": "Trainer",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Turn based combat",
+                "value": "Turn based combat",
+                "optgroup": "nonsexual"
+            },
+            {
+                "text": "Twins",
+                "value": "Twins",
+                "optgroup": "nonsexual"
+            }
+        ],
+        "assets": [
+            {
+                "text": "Asset-addon",
+                "value": "Asset-addon",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-animal",
+                "value": "Asset-animal",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-animation",
+                "value": "Asset-animation",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-audio",
+                "value": "Asset-audio",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-bundle",
+                "value": "Asset-bundle",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-character",
+                "value": "Asset-character",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-clothing",
+                "value": "Asset-clothing",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-environment",
+                "value": "Asset-environment",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-expression",
+                "value": "Asset-expression",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-hair",
+                "value": "Asset-hair",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-hdri",
+                "value": "Asset-hdri",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-light",
+                "value": "Asset-light",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-morph",
+                "value": "Asset-morph",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-plugin",
+                "value": "Asset-plugin",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-pose",
+                "value": "Asset-pose",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-prop",
+                "value": "Asset-prop",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-script",
+                "value": "Asset-script",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-shader",
+                "value": "Asset-shader",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-texture",
+                "value": "Asset-texture",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-utility",
+                "value": "Asset-utility",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-vehicle",
+                "value": "Asset-vehicle",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-ai-shoujo",
+                "value": "Asset-ai-shoujo",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-honey-select",
+                "value": "Asset-honey-select",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-honey-select2",
+                "value": "Asset-honey-select2",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-koikatu",
+                "value": "Asset-koikatu",
+                "optgroup": "assets"
+            },
+            {
+                "text": "Asset-playclub",
+                "value": "Asset-playclub",
+                "optgroup": "assets"
+            }
+        ]
+    }
+]
