@@ -3,6 +3,17 @@
 @section('content')
     <!-- BEGIN container -->
     <div class="container">
+        <div class="toast" data-autohide="false" style="position: absolute;top: 4rem;right: 0;">
+            <div class="toast-header">
+                <i class="far fa-bell text-muted me-2"></i>
+                <strong class="me-auto">Message</strong>
+                <small>{{ \Carbon\Carbon::now()->diffForHumans() }}</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+            </div>
+            <div class="toast-body">
+               
+            </div>
+        </div>
         <!-- BEGIN row -->
         <div class="row justify-content-center">
             <!-- BEGIN col-10 -->
@@ -21,7 +32,7 @@
                         </h1>
 
                         <hr class="mb-4">
-                        <form id="templateForm" name="templateForm" method="POST">
+                        <form id="templateForm">
                             @csrf
                             <!-- BEGIN #header -->
                             <div id="headerInfo" class="mb-5">
@@ -31,6 +42,7 @@
                                         href="https://f95zone.to/members/ryahn.99264/">Ryahn</a> on F95Zone or
                                     F95Zone Discord.</p>
                                 <div class="card">
+
                                     <div class="card-body pb-2">
 
                                         <div class="row">
@@ -47,7 +59,7 @@
                                             <div class="col-xl-4">
                                                 <div class="form-group mb-3">
                                                     <label class="form-label" for="gameType">Type</label>
-                                                    <select class="form-select" id="gameType" name="gameType">
+                                                    <select class="form-select" id="gameType" name="type">
                                                         <option></option>
                                                         <option value="animation">Animation</option>
                                                         <option value="asset">Assets</option>
@@ -128,10 +140,12 @@
                                                     <select class="form-select" name="censorship" id="censorsip">
                                                         <option></option>
                                                         <option value="1">Yes - Mosaics</option>
-                                                        <option value="2">Yes - Patch w/ Mosaics</option>
-                                                        <option value="2">Yes - Patch w/o Mosaics</option>
-                                                        <option value="3">No</option>
-                                                        <option value="4">No Sexual Content</option>
+                                                        <option value="2">Yes - Patch w/ Mosaics
+                                                        </option>
+                                                        <option value="3">Yes - Patch w/o Mosaics
+                                                        </option>
+                                                        <option value="4">No</option>
+                                                        <option value="5">No Sexual Content</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -140,9 +154,13 @@
                                             <div class="col-xl-4" id="languageShow">
                                                 <div class="mb-3">
                                                     <label class="form-label" for="language">Language</label>
-                                                    <select name="langauge" id="language" class="form-select" multiple>
+                                                    <select name="langauge[]" id="language" class="form-select"
+                                                        multiple>
                                                         @foreach ($languages as $lang)
-                                                            <option @if ($lang['selected']) selected @endif value="{{ $lang['name'] }}">{{ $lang['name'] }} ({{ $lang['code'] }})</option>
+                                                            <option @if ($lang['selected']) selected @endif
+                                                                value="{{ $lang['name'] }}">{{ $lang['name'] }}
+                                                                ({{ $lang['code'] }})
+                                                            </option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -150,37 +168,42 @@
                                             <div class="col-xl-4" id="genreShow">
                                                 <div class="mb-3">
                                                     <label class="form-label">Genre</label>
-                                                    <select multiple class="form-select" name="genre" id="genre">
+                                                    <select multiple class="form-select" name="genre[]" id="genre">
                                                         <optgroup label="Technical">
                                                             @foreach ($technical as $tech)
-                                                                <option value="{{ $tech->name }}">{{ $tech->name }}</option>
+                                                                <option value="{{ $tech->value }}">{{ $tech->value }}
+                                                                </option>
                                                             @endforeach
                                                         </optgroup>
                                                         <optgroup label="Non-Sexual">
                                                             < @foreach ($nonsexual as $nonsex)
-                                                            <option value="{{ $nonsex->name }}">{{ $nonsex->name }}</option>
-                                                        @endforeach
+                                                                <option value="{{ $nonsex->value }}">{{ $nonsex->value }}
+                                                                </option>
+                                                                @endforeach
                                                         </optgroup>
                                                         <optgroup label="Sexual">
                                                             @foreach ($sexual as $sex)
-                                                            <option value="{{ $sex->name }}">{{ $sex->name }}</option>
-                                                        @endforeach
+                                                                <option value="{{ $sex->value }}">{{ $sex->value }}
+                                                                </option>
+                                                            @endforeach
                                                         </optgroup>
                                                         <optgroup label="Assets">
                                                             @foreach ($assets as $asset)
-                                                            <option value="{{ $asset->name }}">{{ $asset->name }}</option>
-                                                        @endforeach
+                                                                <option value="{{ $asset->value }}">{{ $asset->value }}
+                                                                </option>
+                                                            @endforeach
                                                         </optgroup>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="col-xl-4" id="osShow">
                                                 <div class="mb-3">
-                                                    <label for="os-sys" class="form-label">Operating
+                                                    <label for="osSys" class="form-label">Operating
                                                         System</label>
-                                                    <select name="os_sys" id="os-sys" multiple class="form-select">
+                                                    <select name="osSys[]" id="osSys" multiple class="form-select">
                                                         @foreach ($os as $o)
-                                                            <option value="{{ $o['name'] }}">{{ $o['name'] }}</option>
+                                                            <option value="{{ $o['name'] }}">{{ $o['name'] }}
+                                                            </option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -191,9 +214,12 @@
                                                 <div class="mb-3">
                                                     <label class="form-label" for="voiced-lang">Voiced
                                                         Language</label>
-                                                    <select name="voiced" id="voiced-lang" class="form-select" multiple>
+                                                    <select name="voiced[]" id="voiced-lang" class="form-select"
+                                                        multiple>
                                                         @foreach ($languages as $lang)
-                                                            <option value="{{ $lang['name'] }}">{{ $lang['name'] }} ({{ $lang['code'] }})</option>
+                                                            <option value="{{ $lang['name'] }}">{{ $lang['name'] }}
+                                                                ({{ $lang['code'] }})
+                                                            </option>
                                                         @endforeach
                                                     </select>
                                                 </div>
@@ -251,22 +277,31 @@
                                                         class="form-control">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4" id="originalTitleShow">
+                                            {{-- <div class="col-xl-4" id="originalTitleShow">
                                                 <div class="mb-3">
                                                     <label for="originalTitle" class="form-label">Original Title</label>
                                                     <input type="text" name="originalTitle" id="originalTitle"
                                                         class="form-control">
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             {{-- </div> --}}
                                             {{-- <div class="row"> --}}
-                                            <div class="col-xl-4" id="lengthShow">
+                                            {{-- <div class="col-xl-4" id="lengthShow">
                                                 <div class="mb-3">
-                                                    <label for="length" class="form-label">Length</label>
-                                                    <input type="text" name="length" id="length"
-                                                        class="form-control">
+                                                    <label class="form-label">Play Time</label>
+                                                    <select class="form-select" name="length" id="length">
+                                                        <option></option>
+                                                        <option value="Very short (< 2 hours)">Very short (< 2
+                                                                hours)</option>
+                                                        <option value="Short (2 - 10 hours)">Short (2 - 10 hours)</option>
+                                                        <option value="Medium (10 - 30 hours)">Medium (10 - 30 hours)
+                                                        </option>
+                                                        <option value="Long (30 - 50 hours)">Long (30 - 50 hours)</option>
+                                                        <option value="Very long (> 50 hours)">Very long (> 50 hours)
+                                                        </option>
+                                                    </select>
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="col-xl-4" id="linkAssetShow">
                                                 <div class="mb-3">
                                                     <label for="linkAsset" class="form-label">Link To Asset</label>
@@ -276,9 +311,28 @@
                                             </div>
                                             <div class="col-xl-4" id="compatibleShow">
                                                 <div class="mb-3">
-                                                    <label for="compatible" class="form-label">Compatible Software</label>
-                                                    <input type="text" name="compatible" id="compatible"
-                                                        class="form-control">
+                                                    <label class="form-label">compatible Software</label>
+                                                    <select class="form-select" name="compatible[]" id="compatible"
+                                                        multiple>
+                                                        <optgroup label="Blender">
+                                                            @foreach ($blender as $blen)
+                                                                <option value="{{ $blen->name }}">{{ $blen->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                        <optgroup label="Unreal Engine">
+                                                            @foreach ($unreal as $unr)
+                                                                <option value="{{ $unr->name }}">{{ $unr->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                        <optgroup label="None">
+                                                            @foreach ($none as $nones)
+                                                                <option value="{{ $nones->name }}">{{ $nones->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </optgroup>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
@@ -345,6 +399,8 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <button class="btn btn-outline-theme btn-lg d-block w-100 fw-500 mb-3"
+                                            id="makeBBcode">Make</button>
                                     </div>
                                     <div class="card-arrow">
                                         <div class="card-arrow-top-left"></div>
@@ -358,17 +414,32 @@
                             <!-- BEGIN #general3 -->
                             <div id="notes" class="mb-5">
                                 <h4>BBCODE</h4>
-                                <p>BBCODE</p>
                                 <div class="card">
                                     <div class="card-body pb-2">
                                         <div class="row">
+                                            <div class="col-xl-6">
+                                                <div class="mb-3">
+                                                    <div class="input-group flex-nowrap">
+                                                        <input type="text" class="form-control" disabled id="titleFormat">
+                                                        <span class="input-group-text" onclick="copyToClipboard('#titleFormat')"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i></span>
+                                                      </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6">
+                                                <div class="mb-3">
+                                                    <div class="input-group flex-nowrap">
+                                                        <input type="text" class="form-control" disabled id="genreFormat">
+                                                        <span class="input-group-text" onclick="copyToClipboard('#genreFormat')"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i></span>
+                                                      </div>
+                                                </div>
+                                            </div>
                                             <div class="col-xl-12">
                                                 <div class="form-group mb-3">
-                                                    <label class="form-label" for="bbcode">BBCode</label>
-                                                    <textarea class="form-control" id="bbcode" rows="3" placeholder=""></textarea>
+                                                    <textarea class="form-control" id="bbcode" rows="3" disabled></textarea>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                     <div class="card-arrow">
                                         <div class="card-arrow-top-left"></div>
@@ -386,8 +457,56 @@
                 <!-- END row -->
             </div>
             <!-- END col-10 -->
+
         </div>
         <!-- END row -->
     </div>
     <!-- END container -->
+@endsection
+@section('scripts')
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        $("#templateForm").on('submit', function(e) {
+
+            e.preventDefault();
+            // console.log($(this).serialize())
+
+            $.ajax({
+                type: 'POST',
+                url: "{{ route('makerStore') }}",
+                data: $(this).serialize(),
+                success: function(data) {
+                    // console.log(data)
+                        $('.toast-body').empty().append(data.msg);
+                        $('.toast').toast('show');
+                        $.ajax({
+                            type: 'GET',
+                            url: "{{route('makerGet', '')}}"+"/"+data.id,
+                            success: function(data1) {
+                                $('#titleFormat').val(`${data1.template.game_name} [${data1.template.version}][${data1.template.devName}]`);
+                                $('#genreFormat').val(data1.template.genre);
+                                $('#bbcode').val(data1.html);
+                            }
+                        })
+                }
+            });
+
+        });
+
+        function copyToClipboard(element) {
+            // console.log($(this).val())
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(element).text()).select();
+            document.execCommand("copy");
+            $('.toast-body').empty().append('Copied to clipboard');
+            $temp.remove();
+         }
+         
+    </script>
 @endsection

@@ -9,7 +9,7 @@ $(document).ready(function () {
       hideSelected: true,
       searchField: ["text"]
   });
-  $('#os-sys').selectize({
+  $('#osSys').selectize({
       sortField: 'text',
       hideSelected: true,
       searchField: ["text"]
@@ -26,6 +26,15 @@ $(document).ready(function () {
   });
   $('#voiced-lang').selectize({
       sortField: 'text',
+      hideSelected: true,
+      searchField: ["text"]
+  });
+  $('#compatible').selectize({
+      sortField: 'text',
+      hideSelected: true,
+      searchField: ["text"]
+  });
+  $('#length').selectize({
       hideSelected: true,
       searchField: ["text"]
   });

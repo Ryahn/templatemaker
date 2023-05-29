@@ -26,7 +26,7 @@
 
     
     @include('partials.scripts')
-
+    @yield('scripts')
 </body>
 
 </html>

@@ -6,19 +6,19 @@
         <div class="menu">
             <div class="menu-header">Navigation</div>
             <div class="menu-item active">
-                <a href="/" class="menu-link">
+                <a href="{{ route('homeIndex') }}" class="menu-link">
                     <span class="menu-icon"><i class="bi bi-house-door"></i></span>
                     <span class="menu-text">Home</span>
                 </a>
             </div>
             <div class="menu-item">
-                <a href="/maker" class="menu-link">
+                <a href="{{ route('maker') }}" class="menu-link">
                     <span class="menu-icon"><i class="bi bi-file-ruled"></i></span>
                     <span class="menu-text">Template Maker</span>
                 </a>
             </div>
             <div class="menu-item">
-                <a href="/changelog" class="menu-link">
+                <a href="{{ route('changelog') }}" class="menu-link">
                     <span class="menu-icon"><i class="bi bi-card-text"></i></span>
                     <span class="menu-text">Change Log</span>
                 </a>

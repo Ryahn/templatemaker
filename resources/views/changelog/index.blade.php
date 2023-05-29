@@ -23,6 +23,14 @@
                     <hr class="mb-4">
 
                     <div class="col-lg-8 col-md-10 col-12">
+                        <h5 class="mt-4"> <span class="p-2 bg-gradient.bg-gray-400 border-success rounded text-success"> Version 3.0.1</span>
+                            - 18th, May 2023</h5>
+                        <ul class="list-unstyled mt-3">
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Added Languages to database. All 142 available but no dialects.</li>
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>OS, Genre and Software added to database.</li>
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Fixed a login bug not allowing remember me.</li>
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Fixed all template options to be fluid.</li>
+                        </ul>
 
                         <h5 class="mt-4"> <span class="p-2 bg-gradient.bg-gray-400 border-success rounded text-success"> Version 3.0.0</span>
                             - 18th, May 2023</h5>

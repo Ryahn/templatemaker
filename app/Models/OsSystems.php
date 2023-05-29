@@ -5,8 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OpSystems extends Model
+class OsSystems extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $table = 'os_systems';
+
 }

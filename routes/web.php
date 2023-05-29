@@ -1,8 +1,7 @@
 <?php
 
-use App\Models\Tags;
-use App\Models\Languages;
-use App\Models\OpSystems;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\TemplateController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,18 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $tags = Tags::all();
-    $sexual = $tags->filter(function($tag) { return $tag->group=='sexual'; })->values();
-    $assets = $tags->filter(function($tag) { return $tag->group=='assets'; })->values();
-    $nonsexual = $tags->filter(function($tag) { return $tag->group=='nonsexual'; })->values();
-    $technical = $tags->filter(function($tag) { return $tag->group=='technical'; })->values();
-    $languages = Languages::all();
-    $os = OpSystems::all();
+    return view('welcome');
+})->name('homeIndex');
 
-    return view('template.index', compact('tags', 'sexual', 'assets', 'nonsexual', 'technical', 'languages', 'os'));
-});
+Route::get('/maker', [TemplateController::class, 'index'])->name('maker');
+Route::get('/changelog', function() {
+    return view('changelog.index');
+})->name('changelog');
 
+Route::post('/maker/store', [TemplateController::class, 'store'])->name('makerStore');
+Route::get('/maker/{id}', [TemplateController::class, 'ajax'])->name('makerGet');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/admin', [DashboardController::class, 'index'])->name('admin.index')->middleware('is_admin');
+
