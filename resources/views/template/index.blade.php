@@ -481,7 +481,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: "{{ route('makerStore') }}",
+                url: "/maker/store",
                 data: $(this).serialize(),
                 success: function(data) {
                     if($.isEmptyObject(data.errors)){
@@ -490,7 +490,7 @@
                         $('.toast').toast('show');
                         $.ajax({
                             type: 'GET',
-                            url: "{{route('makerGet', '')}}"+"/"+data.id,
+                            url: "/maker"+"/"+data.id,
                             success: function(data1) {
                                 $('#titleFormat').val(`${data1.template.game_name} [${data1.template.version}][${data1.template.devName}]`);
                                 $('#genreFormat').val(data1.template.genre);
