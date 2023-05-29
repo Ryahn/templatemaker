@@ -23,6 +23,12 @@
                     <hr class="mb-4">
 
                     <div class="col-lg-8 col-md-10 col-12">
+                        <h5 class="mt-4"> <span class="p-2 bg-gradient.bg-gray-400 border-success rounded text-success"> Version 3.0.3</span>
+                            - 29th, May 2023</h5>
+                        <ul class="list-unstyled mt-3">
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Added bbcode for download links for each OS.</li>
+                        </ul>
+
                         <h5 class="mt-4"> <span class="p-2 bg-gradient.bg-gray-400 border-success rounded text-success"> Version 3.0.1</span>
                             - 18th, May 2023</h5>
                         <ul class="list-unstyled mt-3">
