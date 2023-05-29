@@ -228,7 +228,7 @@
                                                 <div class="mb-3">
                                                     <label for="prequel" class="form-label">Prequel</label>
                                                     <input class="form-control" type="text" name="prequel"
-                                                        id="prequel">
+                                                        id="prequel" placeholder="itznik likes lolis and femigurlz">
                                                 </div>
                                             </div>
                                             <div class="col-xl-4" id="sequelShow">
