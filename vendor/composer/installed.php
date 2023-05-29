@@ -3,7 +3,7 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'a796884561d4e9098f2e4be61bf4097dc934203c',
+        'reference' => '71af838e76d696dff154fdc7051f91d97b20f53d',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -201,6 +201,15 @@
             'install_path' => __DIR__ . '/../hamcrest/hamcrest-php',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'haruncpi/laravel-log-reader' => array(
+            'pretty_version' => 'v1.0.6',
+            'version' => '1.0.6.0',
+            'reference' => '60ec565207906d448c4c8ccd36ce9dc6ad5bc4e1',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../haruncpi/laravel-log-reader',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'illuminate/auth' => array(
             'dev_requirement' => false,
@@ -406,7 +415,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'a796884561d4e9098f2e4be61bf4097dc934203c',
+            'reference' => '71af838e76d696dff154fdc7051f91d97b20f53d',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

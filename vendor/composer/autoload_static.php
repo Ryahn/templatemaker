@@ -129,6 +129,10 @@ class ComposerStaticInitfbc8dd0aa005a4c765b144884412a2f9
             'Illuminate\\Foundation\\Auth\\' => 27,
             'Illuminate\\' => 11,
         ),
+        'H' => 
+        array (
+            'Haruncpi\\LaravelLogReader\\' => 26,
+        ),
         'G' => 
         array (
             'GuzzleHttp\\Psr7\\' => 16,
@@ -408,6 +412,10 @@ class ComposerStaticInitfbc8dd0aa005a4c765b144884412a2f9
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate',
         ),
+        'Haruncpi\\LaravelLogReader\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/haruncpi/laravel-log-reader/src',
+        ),
         'GuzzleHttp\\Psr7\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
@@ -549,7 +557,7 @@ class ComposerStaticInitfbc8dd0aa005a4c765b144884412a2f9
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Languages' => __DIR__ . '/../..' . '/app/Models/Languages.php',
-        'App\\Models\\OpSystems' => __DIR__ . '/../..' . '/app/Models/OpSystems.php',
+        'App\\Models\\OsSystems' => __DIR__ . '/../..' . '/app/Models/OsSystems.php',
         'App\\Models\\Software' => __DIR__ . '/../..' . '/app/Models/Software.php',
         'App\\Models\\Tags' => __DIR__ . '/../..' . '/app/Models/Tags.php',
         'App\\Models\\Template' => __DIR__ . '/../..' . '/app/Models/Template.php',
@@ -713,8 +721,15 @@ class ComposerStaticInitfbc8dd0aa005a4c765b144884412a2f9
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
+        'Database\\Factories\\TemplateFactory' => __DIR__ . '/../..' . '/database/factories/TemplateFactory.php',
         'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
+        'Database\\Seeders\\GenreSeeder' => __DIR__ . '/../..' . '/database/seeders/GenreSeeder.php',
+        'Database\\Seeders\\LanguageSeeder' => __DIR__ . '/../..' . '/database/seeders/LanguageSeeder.php',
+        'Database\\Seeders\\OsSeeder' => __DIR__ . '/../..' . '/database/seeders/OsSeeder.php',
+        'Database\\Seeders\\SoftwareSeeder' => __DIR__ . '/../..' . '/database/seeders/SoftwareSeeder.php',
+        'Database\\Seeders\\TemplateSeeder' => __DIR__ . '/../..' . '/database/seeders/TemplateSeeder.php',
+        'Database\\Seeders\\UserSeeder' => __DIR__ . '/../..' . '/database/seeders/UserSeeder.php',
         'DebugBar\\Bridge\\CacheCacheCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/CacheCacheCollector.php',
         'DebugBar\\Bridge\\DoctrineCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/DoctrineCollector.php',
         'DebugBar\\Bridge\\MonologCollector' => __DIR__ . '/..' . '/maximebf/debugbar/src/DebugBar/Bridge/MonologCollector.php',
@@ -1755,6 +1770,9 @@ class ComposerStaticInitfbc8dd0aa005a4c765b144884412a2f9
         'Hamcrest\\Type\\IsString' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Type/IsString.php',
         'Hamcrest\\Util' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Util.php',
         'Hamcrest\\Xml\\HasXPath' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest/Xml/HasXPath.php',
+        'Haruncpi\\LaravelLogReader\\Controllers\\LogReaderController' => __DIR__ . '/..' . '/haruncpi/laravel-log-reader/src/Controllers/LogReaderController.php',
+        'Haruncpi\\LaravelLogReader\\LaravelLogReader' => __DIR__ . '/..' . '/haruncpi/laravel-log-reader/src/LaravelLogReader.php',
+        'Haruncpi\\LaravelLogReader\\ServiceProvider' => __DIR__ . '/..' . '/haruncpi/laravel-log-reader/src/ServiceProvider.php',
         'Illuminate\\Auth\\Access\\AuthorizationException' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/AuthorizationException.php',
         'Illuminate\\Auth\\Access\\Events\\GateEvaluated' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Events/GateEvaluated.php',
         'Illuminate\\Auth\\Access\\Gate' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Auth/Access/Gate.php',

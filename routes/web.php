@@ -1,8 +1,10 @@
 <?php
 
-use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\TemplateController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LogController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TemplateController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,7 +31,10 @@ Route::get('/maker/{id}', [TemplateController::class, 'ajax'])->name('makerGet')
 
 Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::get('/admin', [DashboardController::class, 'index'])->name('admin.index')->middleware('is_admin');
+Route::get('/admin/logs', [LogController::class, 'getIndex']);
+Route::get('/admin/api/logs', [LogController::class, 'getLogs']);
+Route::post('/admin/logs', [LogController::class, 'postDelete']);
 
