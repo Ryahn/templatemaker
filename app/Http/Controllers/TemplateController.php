@@ -58,5 +58,12 @@ class TemplateController extends Controller
         // return response($returnHTML, 200)->header('Content-Type', 'text/html');
     }
 
+    public function edit(string $id)
+    {
+        $template = Template::findOrFail($id);
+        $returnHTML = view('template.bbcode')->with('template', $template)->render();
+        return response($returnHTML);
+    }
+
     
 }

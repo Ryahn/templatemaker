@@ -37,15 +37,21 @@
 [SPOILER]
 {{ $template->changelog }}
 [/SPOILER]
-
+@php 
+$oses = explode(', ', $template->osSys);
+@endphp
 @if ($template->type != 'game')
+
 [CENTER][SIZE=5][B]Collection List Download[/B]:
 [/SIZE]
-[SIZE=5][B]Download[/B]:
+[SIZE=5][B]Download[/B]: LINK - LINK - LINK
 [/SIZE]
 @else
 [CENTER][SIZE=6][B]Download[/B]:[/SIZE]
-[SIZE=5]LINKS
+[SIZE=5]
+@foreach ($oses as $os)
+{!! nl2br("[B]". $os ."[/B]: LINK - LINK - LINK") !!}
+@endforeach
 [/SIZE]
 @endif
 

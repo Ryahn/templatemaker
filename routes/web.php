@@ -28,6 +28,7 @@ Route::get('/changelog', function() {
 
 Route::post('/maker/store', [TemplateController::class, 'store'])->name('makerStore');
 Route::get('/maker/{id}', [TemplateController::class, 'ajax'])->name('makerGet');
+Route::get('/maker/edit/{id}', [TemplateController::class, 'edit'])->name('makerEdit');
 
 Auth::routes(['register' => false]);
 
