@@ -194,4 +194,33 @@ class Template extends Model
         return $data['results'][0]['titles'][0]['latin'];
     }
 
+    public function setTrailerAttribute($value)
+    {
+        $parts = explode('/', $value);
+
+        $key = "";
+        $bbcode = "";
+
+        if (in_array('imgur.com', $parts)) {
+            $key = array_search('imgur.com', $parts);
+            $bbcode = "[media=". explode(".", $parts[$key])[0] . "]". $parts[3] . "[/media]";
+        } elseif (in_array('vimeo.com', $parts)) {
+            $key = array_search('vimeo.com', $parts);
+            $bbcode = "[media=". explode(".", $parts[$key])[0] . "]". explode('?', $parts[3])[0] . "[/media]";
+        } elseif (in_array('drive.google.com', $parts)) {
+            $key = array_search('drive.google.com', $parts);
+            $bbcode = "[media=googledrive]". $parts[5] . "[/media]";
+        } elseif (in_array('store.steampowered.com', $parts)) {
+            $key = array_search('store.steampowered.com', $parts);
+            $bbcode = "[media=steamstore]". $parts[4] . "[/media]";
+        } elseif (in_array('www.youtube.com', $parts)) {
+            $key = array_search('www.youtube.com', $parts);
+            $bbcode = "[media=". explode(".", $parts[$key])[1] . "]". explode('=', $parts[3])[1] . "[/media]";
+        } else {
+            $bbcode = "[media=youtube]dQw4w9WgXcQ[/media]";
+        }
+
+        $this->attributes['trailer'] = $bbcode;
+    }
+
 }

@@ -3,7 +3,7 @@
 @section('content')
     <!-- BEGIN container -->
     <div class="container">
-        <div class="toast" data-autohide="false" style="position: absolute;top: 4rem;right: 0;">
+        <div class="toast bg-danger text-white" data-autohide="false" style="position: absolute;top: 4rem;right: 0;">
             <div class="toast-header">
                 <i class="far fa-bell text-muted me-2"></i>
                 <strong class="me-auto">Message</strong>
@@ -277,13 +277,16 @@
                                                         class="form-control">
                                                 </div>
                                             </div>
-                                            {{-- <div class="col-xl-4" id="originalTitleShow">
+                                            <div class="col-xl-4" id="trailer">
                                                 <div class="mb-3">
-                                                    <label for="originalTitle" class="form-label">Original Title</label>
-                                                    <input type="text" name="originalTitle" id="originalTitle"
+                                                    <label for="trailer" class="form-label">Trailer Video/GIF</label>
+                                                    <input type="text" name="trailer" id="trailer"
                                                         class="form-control">
+                                                        <small id="trailerHelpBlock" class="form-text text-muted">
+                                                            <span class="help alert alert-warning">Youtube.com, Vimeo.com, store.steampowered.com, imgur.com and drive.google.com links are supported</span>
+                                                          </small>
                                                 </div>
-                                            </div> --}}
+                                            </div>
                                             {{-- </div> --}}
                                             {{-- <div class="row"> --}}
                                             {{-- <div class="col-xl-4" id="lengthShow">
@@ -481,6 +484,7 @@
                 url: "{{ route('makerStore') }}",
                 data: $(this).serialize(),
                 success: function(data) {
+                    if($.isEmptyObject(data.errors)){
                     // console.log(data)
                         $('.toast-body').empty().append(data.msg);
                         $('.toast').toast('show');
@@ -493,6 +497,15 @@
                                 $('#bbcode').val(data1.html);
                             }
                         })
+                    } else {
+                        $('.toast-body').empty();
+                        $.each( data.errors, function( key, value ) {
+                            $('.toast-body').append(`<p>${value}</p>`);
+                        });
+                        $('.toast').toast('show', {
+                        delay: 10000
+                        });
+                    }
                 }
             });
 

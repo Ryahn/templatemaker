@@ -541,6 +541,7 @@ class ComposerStaticInitfbc8dd0aa005a4c765b144884412a2f9
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\LanguageController' => __DIR__ . '/../..' . '/app/Http/Controllers/LanguageController.php',
+        'App\\Http\\Controllers\\LogController' => __DIR__ . '/../..' . '/app/Http/Controllers/LogController.php',
         'App\\Http\\Controllers\\OsController' => __DIR__ . '/../..' . '/app/Http/Controllers/OsController.php',
         'App\\Http\\Controllers\\SoftwareController' => __DIR__ . '/../..' . '/app/Http/Controllers/SoftwareController.php',
         'App\\Http\\Controllers\\TagController' => __DIR__ . '/../..' . '/app/Http/Controllers/TagController.php',

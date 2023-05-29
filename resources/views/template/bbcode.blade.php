@@ -1,7 +1,7 @@
 [CENTER](Cover Art)
 
 [B]Overview[/B]:
-{{ $template->overview }}[/CENTER]
+{{ $template->overview }} @if (!($template->trailer == NULL))[spoiler="Trailer"]{{ $template->trailer }}[/spoiler] @endif[/CENTER]
 
 [B]Release Date[/B]: {{ $template->release_date }}
 [B]Updated[/B]: {{ $template->thread_updated }}
@@ -41,7 +41,6 @@
 $oses = explode(', ', $template->osSys);
 @endphp
 @if ($template->type != 'game')
-
 [CENTER][SIZE=5][B]Collection List Download[/B]:
 [/SIZE]
 [SIZE=5][B]Download[/B]: LINK - LINK - LINK

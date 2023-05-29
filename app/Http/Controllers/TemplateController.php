@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\Tags;
-use App\Models\Languages;
-use App\Models\OsSystems;
 use App\Models\Software;
 use App\Models\Template;
+use App\Models\Languages;
+use App\Models\OsSystems;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TemplateController extends Controller
 {
@@ -45,9 +46,22 @@ class TemplateController extends Controller
     public function store(Request $request)
     {
         $inputs = $request->except(['_token','/maker/store']);
-        $data = Template::create($inputs);
-        // return dd($data);
-        return response()->json(['msg' => 'Template created successfully!', 'id' => $data->id, 'status' => 200]);
+
+        $validator = Validator::make($request->all(), [
+            'type' => 'required',
+            'trailer' => ['url', 'regex:/(youtube|drive.google|imgur|vimeo)(.com|.net)/'],
+        ],
+        [
+            'type.required' => 'You must choose a template type!',
+            'trailer.url' => 'Trailer must a URL and be supported. See help text below input for support sites.'
+        ]);
+
+        if (!$validator->fails()) {
+            $data = Template::create($inputs);
+            // return dd($data);
+            return response()->json(['msg' => 'Template created successfully!', 'id' => $data->id, 'status' => 200]);
+        }
+        return response()->json(['errors' => $validator->errors()->all()]);
     }
 
     public function ajax(string $id)  

@@ -53,7 +53,7 @@ var handlejQueryFileUpload = function() {
 	$('#fileupload').fileupload({
 		previewMaxHeight: 80,
 		previewMaxWidth: 120,
-		url: '//jquery-file-upload.appspot.com/',
+		// url: '//jquery-file-upload.appspot.com/',
 		disableImageResize: /Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),
 		maxFileSize: 999000,
 		acceptFileTypes: /(\.|\/)(gif|jpe?g|png)$/i
@@ -71,7 +71,7 @@ var handlejQueryFileUpload = function() {
 	
 	if ($.support.cors) {
 		$.ajax({
-			url: '//jquery-file-upload.appspot.com/',
+			// url: '//jquery-file-upload.appspot.com/',
 			type: 'HEAD'
 		}).fail(function () {
 			var alert = '<div class="alert alert-danger m-b-0 m-t-15">Upload server currently unavailable - ' + new Date() + '</div>';
