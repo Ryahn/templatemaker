@@ -21,21 +21,28 @@ Route::get('/', function () {
     return view('welcome');
 })->name('homeIndex');
 
-Route::get('/maker', [TemplateController::class, 'index'])->name('maker');
 Route::get('/changelog', function() {
     return view('changelog.index');
 })->name('changelog');
 
-Route::post('/maker/store', [TemplateController::class, 'store'])->name('makerStore');
-Route::get('/maker/{id}', [TemplateController::class, 'ajax'])->name('makerGet');
-Route::get('/maker/edit/{id}', [TemplateController::class, 'edit'])->name('makerEdit');
+Route::prefix('/maker')->group(function () {
+    Route::get('/', [TemplateController::class, 'index'])->name('maker');
+    Route::post('/store', [TemplateController::class, 'store'])->name('makerStore');
+    Route::get('/{id}', [TemplateController::class, 'ajax'])->name('makerGet');
+    Route::get('/edit/{id}', [TemplateController::class, 'edit'])->name('makerEdit');
+});
 
 Auth::routes(['register' => false]);
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::get('/admin', [DashboardController::class, 'index'])->name('admin.index')->middleware('is_admin');
-Route::get('/admin/logs', [LogController::class, 'getIndex']);
-Route::get('/admin/api/logs', [LogController::class, 'getLogs']);
-Route::post('/admin/logs', [LogController::class, 'postDelete']);
 
+
+Route::middleware('auth')->group(function() {
+    Route::middleware('is_admin')->prefix('admin')->group(function() {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.index')->middleware('is_admin');
+        Route::get('/logs', [LogController::class, 'getIndex']);
+        Route::get('/api/logs', [LogController::class, 'getLogs']);
+        Route::post('/logs', [LogController::class, 'postDelete']);
+    });
+});
