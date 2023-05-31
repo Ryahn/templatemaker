@@ -17,7 +17,7 @@
                         </ul>
 
                         <h1 class="page-header">
-                            Changelog
+                            Help/FAQ
                         </h1>
 
                         <hr class="mb-4">
@@ -55,24 +55,13 @@
                                     <h2 class="accordion-header" id="heading2">
                                         <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#collapseOne">
-                                            What type should I choose when generating a template?
+                                            How do I format Dev Links?
                                         </button>
                                     </h2>
                                     <div id="collapseOne" class="accordion-collapse collapse"
                                         data-bs-parent="#help2">
                                         <div class="accordion-body">
-                                            <p>You have the following to choose from:</p>
-                                            <ul>
-                                                <li>Animation</li>
-                                                <li>Assets</li>
-                                                <li>Collection</li>
-                                                <li>Comic</li>
-                                                <li>Game</li>
-                                                <li>Manga</li>
-                                                <li>Other</li>
-                                            </ul>
-                                            <p>Collection and Other can be choosen as an All in One template. As it will list all available fields.</p>
-                                            <p>When in double, choose Other.</p>
+                                            <p><code>[url=LINK]SITENAME[/url]</code> will be formated into <code>SITENAME|LINK</code>. Separated them by commas for muliple links. No spaces.</p>
                                         </div>
                                     </div>
                                 </div>
