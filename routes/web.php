@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogController;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TemplateController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -49,4 +50,10 @@ Route::middleware('auth')->group(function() {
         Route::get('/api/logs', [LogController::class, 'getLogs']);
         Route::post('/logs', [LogController::class, 'postDelete']);
     });
+});
+
+Route::get('/gitupdate', function() {
+    $command = Artisan::call('git:update');
+    if(!$command) return response()->json(['msg' => 'OK', 'status' => 200]);
+    return response()->json(['msg' => $command, 'status' => 400]);
 });
