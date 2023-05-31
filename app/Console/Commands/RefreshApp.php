@@ -5,14 +5,14 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Symfony\Component\Process\Process;
 
-class GitUpdate extends Command
+class RefreshApp extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'git:update';
+    protected $signature = 'app:refresh';
 
     /**
      * The console command description.
@@ -71,6 +71,17 @@ class GitUpdate extends Command
     public function handle()
     {
 
+        if(!$this->runPull()) {
+
+            $this->error("An error occurred while executing 'git pull'. \nLogs:");
+
+            foreach($this->pullLog as $logLine) {
+                $this->info($logLine);
+            }
+
+            return;
+        }
+
         if(!$this->runFetch()) {
 
             $this->error("An error occurred while executing 'git fetch'. \nLogs:");
@@ -82,9 +93,9 @@ class GitUpdate extends Command
             return;
         }
 
-        if(!$this->runPull()) {
+        if(!$this->runReset()) {
 
-            $this->error("An error occurred while executing 'git pull'. \nLogs:");
+            $this->error("An error occurred while executing 'git reset'. \nLogs:");
 
             foreach($this->pullLog as $logLine) {
                 $this->info($logLine);
@@ -134,9 +145,9 @@ class GitUpdate extends Command
     }
 
 
-    private function runFetch()
+    public function runFetch()
     {
-        $process = Process::fromShellCommandline('git fetch --all');
+        $process = new Process(['git', 'fetch --all']);
 
         $this->info("Running 'git fetch'");
         
@@ -147,6 +158,18 @@ class GitUpdate extends Command
         return $process->isSuccessful();
     }
     
+    public function runReset()
+    {
+        $process = new Process(['git', 'reset --hard origin/main']);
+
+        $this->info("Running 'git reset'");
+
+        $process->run(function($type, $buffer) {
+            $this->pullLog[] = $buffer;
+        });
+
+        return $process->isSuccessful();
+    }
 
     /**
      * Run git pull process
