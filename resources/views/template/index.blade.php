@@ -17,11 +17,11 @@
         <!-- BEGIN row -->
         <div class="row justify-content-center">
             <!-- BEGIN col-10 -->
-            <div class="col-xl-10">
+            <div class="col-xl-12">
                 <!-- BEGIN row -->
                 <div class="row">
                     <!-- BEGIN col-9 -->
-                    <div class="col-xl-9">
+                    <div class="col-xl-7">
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="#">Home</a></li>
                             <li class="breadcrumb-item active">Template Maker</li>
@@ -46,17 +46,7 @@
                                     <div class="card-body pb-2">
 
                                         <div class="row">
-                                            <div class="col-xl-8">
-                                                <div class="form-group mb-3">
-                                                    <label class="form-label"
-                                                        for="game_name">Game/Comic/Manga/Animation/Collection
-                                                        name</label>
-                                                    <input type="text" class="form-control" id="game_name"
-                                                        name="game_name" placeholder="pezzo is gay">
-                                                </div>
-
-                                            </div>
-                                            <div class="col-xl-4">
+                                            <div class="col-xl-4">{{-- Type --}}
                                                 <div class="form-group mb-3">
                                                     <label class="form-label" for="gameType">Type</label>
                                                     <select class="form-select" id="gameType" name="type">
@@ -71,8 +61,19 @@
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div class="col-xl-8"> {{-- Title --}}
+                                                <div class="form-group mb-3">
+                                                    <label class="form-label"
+                                                        for="game_name">Game/Comic/Manga/Animation/Collection
+                                                        name</label>
+                                                    <input type="text" class="form-control" id="game_name"
+                                                        name="game_name" placeholder="pezzo is gay">
+                                                </div>
+
+                                            </div>
+                                            
                                             <div class="row">
-                                                <div class="col-xl-6">
+                                                <div class="col-xl-6">{{-- Dev Name --}}
                                                     <div class="form-group mb-3">
                                                         <label class="form-label" for="devName">Developer/Artist
                                                             Name</label>
@@ -80,11 +81,22 @@
                                                             name="devName" placeholder="Sarcia is a furry">
                                                     </div>
                                                 </div>
-                                                <div class="col-xl-6" id="versionShow">
+                                                <div class="col-xl-6" id="versionShow">{{-- Version --}}
                                                     <div class="form-group mb-3">
                                                         <label class="form-label" for="version">Version</label>
                                                         <input type="text" class="form-control" id="version"
                                                             name="version" placeholder="BaasB likes futa furries">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xl-12">
+                                                    <div class="form-group mb-3">
+                                                        <label for="devLinks" class="form-label">Dev Links</label>
+                                                        <input type="text" class="form-control" name="devLinks" id="devLinks">
+                                                        <small id="trailerHelpBlock" class="form-text text-muted">
+                                                            <kbd>Format: SiteName|url,Sitename|url</kbd>
+                                                          </small>
                                                     </div>
                                                 </div>
                                             </div>
@@ -110,7 +122,7 @@
                                 <div class="card">
                                     <div class="card-body pb-2">
                                         <div class="row">
-                                            <div class="col-xl-12">
+                                            <div class="col-xl-12">{{-- Overview --}}
                                                 <div class="form-group mb-3">
                                                     <label class="form-label" for="overview">Overview</label>
                                                     <textarea class="form-control" id="overview" rows="3" name="overview"
@@ -119,7 +131,7 @@
                                             </div>
                                             {{-- </div> --}}
                                             {{-- <div class="row"> --}}
-                                            <div class="col-xl-4">
+                                            <div class="col-xl-4">{{-- Updated --}}
                                                 <div class="mb-3">
                                                     <label class="form-label" for="thread_updated">Thread
                                                         Updated</label>
@@ -127,14 +139,14 @@
                                                         name="thread_updated" placeholder="yyyy/mm/dd">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4">
+                                            <div class="col-xl-4">{{-- Release --}}
                                                 <div class="mb-3">
                                                     <label class="form-label">Release Date</label>
                                                     <input type="text" class="form-control" id="release_date"
                                                         name="release_date" placeholder="yyyy/mm/dd">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4" id="censorsipShow">
+                                            <div class="col-xl-4" id="censorsipShow">{{-- Censorship --}}
                                                 <div class="mb-3">
                                                     <label class="form-label">Censorship</label>
                                                     <select class="form-select" name="censorship" id="censorsip">
@@ -151,7 +163,7 @@
                                             </div>
                                             {{-- </div> --}}
                                             {{-- <div class="row"> --}}
-                                            <div class="col-xl-4" id="languageShow">
+                                            <div class="col-xl-4" id="languageShow">{{-- Language --}}
                                                 <div class="mb-3">
                                                     <label class="form-label" for="language">Language</label>
                                                     <select name="langauge[]" id="language" class="form-select"
@@ -165,7 +177,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4" id="genreShow">
+                                            <div class="col-xl-4" id="genreShow">{{-- Genre --}}
                                                 <div class="mb-3">
                                                     <label class="form-label">Genre</label>
                                                     <select multiple class="form-select" name="genre[]" id="genre">
@@ -196,7 +208,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4" id="osShow">
+                                            <div class="col-xl-4" id="osShow">{{-- OS --}}
                                                 <div class="mb-3">
                                                     <label for="osSys" class="form-label">Operating
                                                         System</label>
@@ -210,7 +222,7 @@
                                             </div>
                                             {{-- </div> --}}
                                             {{-- <div class="row" id="row1Show"> --}}
-                                            <div class="col-xl-4" id="voicedShow">
+                                            <div class="col-xl-4" id="voicedShow">{{-- Voices --}}
                                                 <div class="mb-3">
                                                     <label class="form-label" for="voiced-lang">Voiced
                                                         Language</label>
@@ -224,14 +236,14 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4" id="prequelShow">
+                                            <div class="col-xl-4" id="prequelShow">{{-- Prequel --}}
                                                 <div class="mb-3">
                                                     <label for="prequel" class="form-label">Prequel</label>
                                                     <input class="form-control" type="text" name="prequel"
                                                         id="prequel" placeholder="itznik likes lolis and femigurlz">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4" id="sequelShow">
+                                            <div class="col-xl-4" id="sequelShow">{{-- Sequel --}}
                                                 <div class="mb-3">
                                                     <label for="sequel" class="form-label">Sequel</label>
                                                     <input class="form-control" type="text" name="sequel"
@@ -240,7 +252,7 @@
                                             </div>
                                             {{-- </div> --}}
                                             {{-- <div class="row"> --}}
-                                            <div class="col-xl-4" id="userThankShow">
+                                            <div class="col-xl-4" id="userThankShow">{{-- User Thanks --}}
                                                 <div class="mb-3">
                                                     <label for="userThankYou" class="form-label">User Thank
                                                         You</label>
@@ -248,14 +260,14 @@
                                                         class="form-control">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4" id="vndbshow">
+                                            <div class="col-xl-4" id="vndbshow">{{-- VNDB --}}
                                                 <div class="mb-3">
                                                     <label for="vndb" class="form-label">VNDB ID/URL</label>
                                                     <input type="text" name="vndb" id="vndb"
                                                         class="form-control">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4" id="resShow">
+                                            <div class="col-xl-4" id="resShow">{{-- Resolution --}}
                                                 <div class="mb-3">
                                                     <label for="resolution" class="form-label">Resolution</label>
                                                     <input type="text" name="resolution" id="resolution"
@@ -264,26 +276,26 @@
                                             </div>
                                             {{-- </div> --}}
                                             {{-- <div class="row"> --}}
-                                            <div class="col-xl-12" id="contentShow">
+                                            <div class="col-xl-12" id="contentShow">{{-- Content --}}
                                                 <div class="mb-3">
                                                     <label for="content" class="form-label">Content</label>
                                                     <textarea class="form-control" id="content" rows="3" name="content" placeholder="sam is always watching"></textarea>
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4" id="pageShow">
+                                            <div class="col-xl-4" id="pageShow">{{-- Pages --}}
                                                 <div class="mb-3">
                                                     <label for="pages" class="form-label">Pages</label>
                                                     <input type="text" name="pages" id="pages"
                                                         class="form-control">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4" id="trailer">
+                                            <div class="col-xl-4" id="trailerShow">{{-- Trailer --}}
                                                 <div class="mb-3">
                                                     <label for="trailer" class="form-label">Trailer Video/GIF</label>
                                                     <input type="text" name="trailer" id="trailer"
                                                         class="form-control">
                                                         <small id="trailerHelpBlock" class="form-text text-muted">
-                                                            <span class="help alert alert-warning">Youtube.com, Vimeo.com, store.steampowered.com, imgur.com and drive.google.com links are supported</span>
+                                                            <kbd>Youtube.com, Vimeo.com, store.steampowered.com, imgur.com and drive.google.com links are supported</kbd>
                                                           </small>
                                                 </div>
                                             </div>
@@ -305,14 +317,14 @@
                                                     </select>
                                                 </div>
                                             </div> --}}
-                                            <div class="col-xl-4" id="linkAssetShow">
+                                            <div class="col-xl-4" id="linkAssetShow">{{-- Link To Asset --}}
                                                 <div class="mb-3">
                                                     <label for="linkAsset" class="form-label">Link To Asset</label>
                                                     <input type="text" name="linkAsset" id="linkAsset"
                                                         class="form-control">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4" id="compatibleShow">
+                                            <div class="col-xl-4" id="compatibleShow">{{-- Software --}}
                                                 <div class="mb-3">
                                                     <label class="form-label">compatible Software</label>
                                                     <select class="form-select" name="compatible[]" id="compatible"
@@ -356,7 +368,7 @@
                                 <p>Notes &amp; Stuff</p>
                                 <div class="card">
                                     <div class="card-body pb-2">
-                                        <div class="row" id="installShow">
+                                        <div class="row" id="installShow">{{-- Install --}}
                                             <div class="col-xl-12">
                                                 <div class="form-group mb-3">
                                                     <label class="form-label" for="installation">Installation</label>
@@ -365,7 +377,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row" id="changelogShow">
+                                        <div class="row" id="changelogShow">{{-- Changelog --}}
                                             <div class="col-xl-12">
                                                 <div class="form-group mb-3">
                                                     <label class="form-label" for="changelog">Changelog</label>
@@ -374,7 +386,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row" id="devNotesShow">
+                                        <div class="row" id="devNotesShow">{{-- Dev Notes --}}
                                             <div class="col-xl-12">
                                                 <div class="form-group mb-3">
                                                     <label class="form-label" for="devNotes">Dev Notes</label>
@@ -383,7 +395,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row" id="contentListShow">
+                                        <div class="row" id="contentListShow">{{-- Content List --}}
                                             <div class="col-xl-12">
                                                 <div class="form-group mb-3">
                                                     <label class="form-label" for="contentList">Content
@@ -393,7 +405,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row" id="includedListShow">
+                                        <div class="row" id="includedListShow">{{-- Included --}}
                                             <div class="col-xl-12">
                                                 <div class="form-group mb-3">
                                                     <label class="form-label" for="included">Included
@@ -414,48 +426,53 @@
                                 </div>
                             </div>
                             <!-- END #general2 -->
-                            <!-- BEGIN #general3 -->
-                            <div id="notes" class="mb-5">
-                                <h4>BBCODE</h4>
-                                <div class="card">
-                                    <div class="card-body pb-2">
-                                        <div class="row">
-                                            <div class="col-xl-6">
-                                                <div class="mb-3">
-                                                    <div class="input-group flex-nowrap">
-                                                        <input type="text" class="form-control" disabled id="titleFormat">
-                                                        <span class="input-group-text" onclick="copyToClipboard('#titleFormat')"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i></span>
-                                                      </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-6">
-                                                <div class="mb-3">
-                                                    <div class="input-group flex-nowrap">
-                                                        <input type="text" class="form-control" disabled id="genreFormat">
-                                                        <span class="input-group-text" onclick="copyToClipboard('#genreFormat')"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i></span>
-                                                      </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-xl-12">
-                                                <div class="form-group mb-3">
-                                                    <textarea class="form-control" id="bbcode" rows="3" disabled></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="card-arrow">
-                                        <div class="card-arrow-top-left"></div>
-                                        <div class="card-arrow-top-right"></div>
-                                        <div class="card-arrow-bottom-left"></div>
-                                        <div class="card-arrow-bottom-right"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END #general3 -->
+                            
                         </form>
                     </div>
                     <!-- END col-9-->
+                    <div class="col-xl-5">
+
+                        <!-- BEGIN #general3 -->
+                        <div id="notes" class="mb-5">
+                            <h4>BBCODE</h4>
+                            <div class="card">
+                                <div class="card-body pb-2">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <div class="mb-3">
+                                                <div class="input-group flex-nowrap">
+                                                    <input type="text" class="form-control" disabled id="titleFormat">
+                                                    <span class="input-group-text" onclick="copyToClipboard('#titleFormat')"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i></span>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <div class="mb-3">
+                                                <div class="input-group flex-nowrap">
+                                                    <input type="text" class="form-control" disabled id="genreFormat">
+                                                    <span class="input-group-text" onclick="copyToClipboard('#genreFormat')"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i></span>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div class="form-group mb-3">
+                                                <textarea class="form-control" id="bbcode" rows="40" disabled></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="card-arrow">
+                                    <div class="card-arrow-top-left"></div>
+                                    <div class="card-arrow-top-right"></div>
+                                    <div class="card-arrow-bottom-left"></div>
+                                    <div class="card-arrow-bottom-right"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END #general3 -->
+                        
+                        </div>
                 </div>
                 <!-- END row -->
             </div>

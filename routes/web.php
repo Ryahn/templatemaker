@@ -25,6 +25,10 @@ Route::get('/changelog', function() {
     return view('changelog.index');
 })->name('changelog');
 
+Route::get('/help', function() {
+    return view('help.index');
+})->name('help');
+
 Route::prefix('/maker')->group(function () {
     Route::get('/', [TemplateController::class, 'index'])->name('maker');
     Route::post('/store', [TemplateController::class, 'store'])->name('makerStore');

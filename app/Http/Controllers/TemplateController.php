@@ -49,7 +49,7 @@ class TemplateController extends Controller
 
         $validator = Validator::make($request->all(), [
             'type' => 'required',
-            'trailer' => ['url', 'regex:/(youtube|drive.google|imgur|vimeo)(.com|.net)/'],
+            'trailer' => ['url', 'sometimes', 'nullable', 'regex:/(youtube|drive.google|imgur|vimeo)(.com|.net)/'],
         ],
         [
             'type.required' => 'You must choose a template type!',

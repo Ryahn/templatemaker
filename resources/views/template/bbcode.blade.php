@@ -6,7 +6,7 @@
 [B]Release Date[/B]: {{ $template->release_date }}
 [B]Updated[/B]: {{ $template->thread_updated }}
 @if ($template->type == 'game' || $template->type == 'collection' || $template->type == 'other')
-[B]Developer[/B]: {{ $template->devName }}
+[B]Developer[/B]: {{ $template->devName }} @if (!($template->devLinks == NULL)){{ $template->devLinks }} @endif
 [B]Censorship[/B]: {{ $template->censorship }}
 [B]Language[/B]: {{ $template->language }}
 [B]OS[/B]: {{ $template->osSys }}

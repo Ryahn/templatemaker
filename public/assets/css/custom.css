@@ -70,3 +70,7 @@ span.help.alert.alert-warning {
     /* margin-top: 23px; */
     top: 6px;
 }
+
+.app-content {
+    margin-left: 150px;
+}

@@ -17,7 +17,7 @@ class Template extends Model
      */
     public function setLangaugeAttribute($value)
     {
-        if (!$value) $this->attributes['langauge'] = null;
+        if (!$value) return $this->attributes['langauge'] = null;
         $this->attributes['langauge'] = implode(', ', $value);
     }
 
@@ -28,7 +28,7 @@ class Template extends Model
      */
     public function setGenreAttribute($value)
     {
-        if (!$value) $this->attributes['genre'] = null;
+        if (!$value) return $this->attributes['genre'] = null;
         $this->attributes['genre'] = implode(', ', $value);
     }
 
@@ -38,7 +38,7 @@ class Template extends Model
      */
     public function setOsSysAttribute($value)
     {
-        if (!$value) $this->attributes['osSys'] = null;
+        if (!$value) return $this->attributes['osSys'] = null;
         $this->attributes['osSys'] = implode(', ', $value);
     }
 
@@ -48,7 +48,7 @@ class Template extends Model
      */
     public function setVoicedAttribute($value)
     {
-        if (!$value) $this->attributes['voiced'] = null;
+        if (!$value) return $this->attributes['voiced'] = null;
         $this->attributes['voiced'] = implode(', ', $value);
     }
 
@@ -58,10 +58,15 @@ class Template extends Model
      */
     public function setCompatibleAttribute($value)
     {
-        if (!$value) $this->attributes['compatible'] = null;
+        if (!$value) return $this->attributes['compatible'] = null;
         $this->attributes['compatible'] = implode(', ', $value);
     }
 
+    public function setCensorshipAttribute($value)
+    {
+        if (!$value) return $this->attributes['censorship'] = null;
+        $this->attributes['compatible'] = $value;
+    }
     public function getCensorshipAttribute($value)
     {
         switch ($this->attributes['censorship']) {
@@ -196,6 +201,7 @@ class Template extends Model
 
     public function setTrailerAttribute($value)
     {
+        if (!$value) return $this->attributes['trailer'] = null;
         $parts = explode('/', $value);
 
         $key = "";
@@ -221,6 +227,19 @@ class Template extends Model
         }
 
         $this->attributes['trailer'] = $bbcode;
+    }
+
+    public function setDevLinksAttribute($value)
+    {
+        if (!$value) return $this->attributes['devLinks'] = null;
+        $parts = explode(',', $value);
+        $devLinks = [];
+        foreach ($parts as $part) {
+            $link = explode('|',$part);
+            $url = "[url=". $link[1] . "]" . $link[0] . "[/url]";
+            $devLinks[] = $url;
+        }
+        $this->attributes['devLinks'] = implode(' - ', $devLinks);
     }
 
 }
