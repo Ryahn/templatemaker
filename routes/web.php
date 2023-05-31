@@ -55,5 +55,5 @@ Route::middleware('auth')->group(function() {
 Route::get('/gitupdate', function() {
     $command = Artisan::call('git:update');
     if(!$command) return response()->json(['msg' => 'OK', 'status' => 200]);
-    return response()->json(['msg' => $command, 'status' => 400]);
+    return response()->json(['msg' => $command, 'status' => 409]);
 });
