@@ -23,6 +23,15 @@
                     <hr class="mb-4">
 
                     <div class="col-lg-8 col-md-10 col-12">
+                        <h5 class="mt-4"> <span class="p-2 bg-gradient.bg-gray-400 border-success rounded text-success"> Version 3.0.5</span>
+                            - 31st, May 2023</h5>
+                        <ul class="list-unstyled mt-3">
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Fixed trailer being required</li>
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Added dev links</li>
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Started adding help section</li>
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Expanded BBCODE textarea</li>
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Added copy function to BBCODE</li>
+                        </ul>
                         <h5 class="mt-4"> <span class="p-2 bg-gradient.bg-gray-400 border-success rounded text-success"> Version 3.0.4</span>
                             - 29th, May 2023</h5>
                         <ul class="list-unstyled mt-3">

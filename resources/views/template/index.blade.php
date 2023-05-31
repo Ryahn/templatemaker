@@ -441,22 +441,24 @@
                                         <div class="col-xl-6">
                                             <div class="mb-3">
                                                 <div class="input-group flex-nowrap">
-                                                    <input type="text" class="form-control" disabled id="titleFormat">
-                                                    <span class="input-group-text" onclick="copyToClipboard('#titleFormat')"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i></span>
+                                                    <input type="text" class="form-control" readonly id="titleFormat">
+                                                    <span class="input-group-text copyToClipBoard" data-clipboard-target="#titleFormat"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i></span>
                                                   </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-6">
                                             <div class="mb-3">
                                                 <div class="input-group flex-nowrap">
-                                                    <input type="text" class="form-control" disabled id="genreFormat">
-                                                    <span class="input-group-text" onclick="copyToClipboard('#genreFormat')"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i></span>
+                                                    <input type="text" class="form-control" readonly id="genreFormat">
+                                                    <span class="input-group-text copyToClipBoard" data-clipboard-target="#genreFormat"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i></span>
                                                   </div>
                                             </div>
                                         </div>
                                         <div class="col-xl-12">
                                             <div class="form-group mb-3">
-                                                <textarea class="form-control" id="bbcode" rows="40" disabled></textarea>
+                                                <button class="btn btn-primary mb-2 copyToClipBoard" id="bbcodeCopy" data-clipboard-target="#bbcode"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i>Copy BBCODE</button>
+                                                <textarea class="form-control" id="bbcode" rows="40" readonly></textarea>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -528,15 +530,21 @@
 
         });
 
-        function copyToClipboard(element) {
-            // console.log($(this).val())
-            var $temp = $("<input>");
-            $("body").append($temp);
-            $temp.val($(element).text()).select();
-            document.execCommand("copy");
+        var clipboard = new ClipboardJS('.copyToClipBoard');
+
+        clipboard.on('success', function(e) {
             $('.toast-body').empty().append('Copied to clipboard');
-            $temp.remove();
-         }
-         
+            $('.toast').toast('show', {
+                        delay: 10000
+                        });
+            e.clearSelection();
+        });
+
+        clipboard.on('error', function(e) {
+            $('.toast-body').empty().append('Could not copy to clipboard!!');
+            $('.toast').toast('show', {
+                        delay: 10000
+                        });
+        });
     </script>
 @endsection

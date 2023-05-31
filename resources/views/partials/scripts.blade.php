@@ -31,6 +31,7 @@
     <script src="{{ asset('assets/js/demo/form-plugins.demo.js') }}"></script>
     <script src="{{ asset('assets/js/demo/sidebar-scrollspy.demo.js') }}"></script>
     <script src="{{ asset('assets/js/selectize.js') }}"></script>
+    <script src="{{ asset('assets/js/clipboard.min.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 
     <!-- ================== END core-js ================== -->
