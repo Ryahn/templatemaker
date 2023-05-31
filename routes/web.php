@@ -52,7 +52,7 @@ Route::middleware('auth')->group(function() {
     });
 });
 
-Route::get('/gitupdate', function() {
+Route::post('/gitupdate', function() {
     $command = Artisan::call('git:update');
     if(!$command) return response()->json(['msg' => 'Pull Successful', 'status' => 200]);
     return response()->json(['msg' => $command, 'status' => 409]);
