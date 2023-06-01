@@ -203,7 +203,7 @@ class GitUpdate extends Command
     private function runMigrate()
     {
 
-        $process = new Process(['php artisan migrate']);
+        $process = Process::fromShellCommandline('php artisan migrate');
         $this->info("Running 'artisan migrate'");
 
         $process->run(function($type, $buffer) {

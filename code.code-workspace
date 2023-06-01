@@ -37,6 +37,10 @@
 			"path": "./config"
 		},
 		{
+			"name": "Commands",
+			"path": "./app/Console/Commands"
+		},
+		{
 			"name": "Root",
 			"path": "."
 		},
