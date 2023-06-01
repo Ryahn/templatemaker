@@ -180,7 +180,7 @@ class GitUpdate extends Command
     private function runComposer()
     {
 
-        $process = new Process(['composer install']);
+        $process = Process::fromShellCommandline('composer install');
         $this->info("Running 'composer install'");
 
         $process->run(function($type, $buffer) {

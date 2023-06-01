@@ -12,6 +12,8 @@ class VerifyCsrfToken extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        'http://template.test/gitupdate',
+        'https://template.lordainz.xyz/gitupdate',
+        'gitupdate/*',
     ];
 }
