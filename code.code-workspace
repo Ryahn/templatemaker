@@ -1,6 +1,5 @@
 {
 	"folders": [
-		
 		{
 			"name": "Controllers",
 			"path": "./app/Http/Controllers"
@@ -41,6 +40,9 @@
 			"name": "Root",
 			"path": "."
 		},
+		{
+			"path": "../../../Downloads/Satisfacory Mods/themeforest-tbMSgnKo-hud-bootstrap-5-admin-template/hud_admin_v2.0/template_html/dist"
+		}
 	],
 	"settings": {}
 }
