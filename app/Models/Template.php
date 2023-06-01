@@ -242,4 +242,17 @@ class Template extends Model
         $this->attributes['devLinks'] = implode(' - ', $devLinks);
     }
 
+    public function setLinkAssetAttribute($value)
+    {
+        if (!$value) return $this->attributes['linkAsset'] = null;
+        $parts = explode(',', $value);
+        $linkAssets = [];
+        foreach ($parts as $part) {
+            $link = explode('|',$part);
+            $url = "[url=". $link[1] . "]" . $link[0] . "[/url]";
+            $linkAssets[] = $url;
+        }
+        $this->attributes['linkAsset'] = implode(' - ', $linkAssets);
+    }
+
 }

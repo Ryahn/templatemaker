@@ -72,7 +72,7 @@
 
                                             </div>
                                             
-                                            <div class="row">
+                                            {{-- <div class="row"> --}}
                                                 <div class="col-xl-6">{{-- Dev Name --}}
                                                     <div class="form-group mb-3">
                                                         <label class="form-label" for="devName">Developer/Artist
@@ -88,9 +88,9 @@
                                                             name="version" placeholder="BaasB likes futa furries">
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col-xl-12">
+                                            {{-- </div> --}}
+                                            {{-- <div class="row"> --}}
+                                                <div class="col-xl-6">
                                                     <div class="form-group mb-3">
                                                         <label for="devLinks" class="form-label">Dev Links</label>
                                                         <input type="text" class="form-control" name="devLinks" id="devLinks">
@@ -99,7 +99,7 @@
                                                           </small>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            {{-- </div> --}}
 
                                         </div>
 
@@ -131,7 +131,7 @@
                                             </div>
                                             {{-- </div> --}}
                                             {{-- <div class="row"> --}}
-                                            <div class="col-xl-4">{{-- Updated --}}
+                                            <div class="col-xl-4" id="thread_updatedShow">{{-- Updated --}}
                                                 <div class="mb-3">
                                                     <label class="form-label" for="thread_updated">Thread
                                                         Updated</label>
@@ -322,6 +322,9 @@
                                                     <label for="linkAsset" class="form-label">Link To Asset</label>
                                                     <input type="text" name="linkAsset" id="linkAsset"
                                                         class="form-control">
+                                                        <small id="trailerHelpBlock" class="form-text text-muted">
+                                                            <kbd>Format: SiteName|url,Sitename|url</kbd>
+                                                          </small>
                                                 </div>
                                             </div>
                                             <div class="col-xl-4" id="compatibleShow">{{-- Software --}}

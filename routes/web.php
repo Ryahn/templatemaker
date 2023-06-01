@@ -51,7 +51,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function() {
     Route::middleware('is_admin')->prefix('admin')->group(function() {
-        Route::get('/', [DashboardController::class, 'index'])->name('adminIndex')->middleware('is_admin');
+        Route::get('/', [DashboardController::class, 'index'])->name('adminIndex');
+        Route::get('/datatables/logs', [DashboardController::class, 'logs'])->name('adminDatatablesLogs');
         Route::get('/logs', [LogController::class, 'getIndex']);
         Route::post('/logs', [LogController::class, 'postDelete']);
         Route::prefix('template')->group(function() {
