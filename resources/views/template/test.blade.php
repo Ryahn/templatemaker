@@ -460,7 +460,7 @@
                                         <div class="col-xl-12">
                                             <div class="form-group mb-3">
                                                 <button class="btn btn-primary mb-2 copyToClipBoard" id="bbcodeCopy" data-clipboard-target="#bbcode"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i>Copy BBCODE</button>
-                                                <textarea class="form-control" id="bbcode" rows="40" readonly></textarea>
+                                                <textarea class="form-control" id="bbcode" rows="40" readonly>{{ $returnHTML }}</textarea>
                                                 
                                             </div>
                                         </div>

@@ -67,7 +67,7 @@ class TemplateController extends Controller
     public function ajax(string $id)  
     {
         $template = Template::findOrFail($id);
-        $returnHTML = view('template.bbcode')->with('template', $template)->render();
+        $returnHTML = view("template.types.$template->type")->with('template', $template)->render();
         return response()->json(['status' => 200, 'msg' => 'OK', 'template' => $template, 'html' => $returnHTML]);
         // return response($returnHTML, 200)->header('Content-Type', 'text/html');
     }
@@ -79,5 +79,36 @@ class TemplateController extends Controller
         return response($returnHTML);
     }
 
+    public function test(string $id)
+    {
+        $tags = Tags::all();
+        $sexual = $tags->filter(function ($tag) {
+            return $tag->optgroup == 'sexual';
+        })->values();
+        $assets = $tags->filter(function ($tag) {
+            return $tag->optgroup == 'assets';
+        })->values();
+        $nonsexual = $tags->filter(function ($tag) {
+            return $tag->optgroup == 'nonsexual';
+        })->values();
+        $technical = $tags->filter(function ($tag) {
+            return $tag->optgroup == 'technical';
+        })->values();
+        $languages = Languages::all();
+        $os = OsSystems::all();
+        $software = Software::all();
+        $unreal = $software->filter(function ($soft) {
+            return $soft->group == 'unreal';
+        });
+        $blender = $software->filter(function ($soft) {
+            return $soft->group == 'blender';
+        });
+        $none = $software->filter(function ($soft) {
+            return $soft->group == 'none';
+        });
+        $template = Template::findOrFail($id);
+        $returnHTML = view("template.types.$template->type")->with('template', $template)->render();
+        return view('template.test', compact('returnHTML', 'tags', 'sexual', 'assets', 'nonsexual', 'technical', 'languages', 'os', 'unreal', 'blender', 'none'));
+    }
     
 }

@@ -57,6 +57,8 @@ Route::middleware('auth')->group(function() {
         Route::post('/logs', [LogController::class, 'postDelete']);
         Route::prefix('template')->group(function() {
             Route::get('/', [TemplatesController::class, 'index'])->name('admin.template.index');
+            Route::get('/view/{id}', [TemplatesController::class, 'show'])->name('admin.template.show');
+            Route::post('/store', [TemplatesController::class, 'store'])->name('admin.template.store');
         });
         Route::prefix('genre')->group(function() {
             Route::get('/', [GenreController::class, 'index'])->name('admin.genre.index');
@@ -70,7 +72,4 @@ Route::post('/gitupdate', function() {
     return response()->json(['msg' => $command, 'status' => 409]);
 });
 
-Route::get('/test', function() {
-    $logs = Http::get(env('APP_URL').'/api/logs')->body();
-    dd($logs);
-});
+Route::get('/maker/test/{id}', [TemplateController::class, 'test']);

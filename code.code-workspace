@@ -1,12 +1,16 @@
 {
 	"folders": [
 		{
+			"name": "Models",
+			"path": "./app/Models"
+		},
+		{
 			"name": "Controllers",
 			"path": "./app/Http/Controllers"
 		},
 		{
-			"name": "Models",
-			"path": "./app/Models"
+			"name": "Views",
+			"path": "./resources/views"
 		},
 		{
 			"name": "Middleware",
@@ -25,14 +29,6 @@
 			"path": "./database/seeders"
 		},
 		{
-			"name": "Views",
-			"path": "./resources/views"
-		},
-		{
-			"name": "Routes",
-			"path": "./routes"
-		},
-		{
 			"name": "Config",
 			"path": "./config"
 		},
@@ -41,10 +37,19 @@
 			"path": "./app/Console/Commands"
 		},
 		{
+			"name": "Public",
+			"path": "./public/assets"
+		},
+		{
+			"name": "Routes",
+			"path": "./routes"
+		},
+		{
 			"name": "Root",
 			"path": "."
 		},
 		{
+			"name": "HTML",
 			"path": "../../../Downloads/Satisfacory Mods/themeforest-tbMSgnKo-hud-bootstrap-5-admin-template/hud_admin_v2.0/template_html/dist"
 		}
 	],

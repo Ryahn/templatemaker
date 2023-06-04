@@ -65,11 +65,11 @@ class Template extends Model
     public function setCensorshipAttribute($value)
     {
         if (!$value) return $this->attributes['censorship'] = null;
-        $this->attributes['compatible'] = $value;
+        $this->attributes['censorship'] = $value;
     }
     public function getCensorshipAttribute($value)
     {
-        switch ($this->attributes['censorship']) {
+        switch ($value) {
             case '1':
                 return 'Yes - Mosaics';
                 break;

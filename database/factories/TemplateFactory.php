@@ -33,6 +33,7 @@ class TemplateFactory extends Factory
         $f95Url = "https://f95zone.to/threads/" . implode('-', $this->faker->words($num1)) . '-' . $this->faker->numerify('##.######');
         $userThanks = "https://f95zone.to/members/" . $this->faker->words(1)[0]. "." . $this->faker->numerify('######');
         $vndbUrl = "https://vndb.org/" . $this->faker->numerify('v#####');
+        $url = $this->faker->words(3)[0] ."|https://". $this->faker->words(3)[0] . ".com,". $this->faker->words(3)[1] ."|https://". $this->faker->words(3)[1] . ".com," . $this->faker->words(3)[2] ."|https://". $this->faker->words(3)[2] . ".com";
         return [
             'type' => $this->faker->randomElement(['animation','asset','collection','comic','game','manga','other']),
             'game_name' => $this->faker->sentence(3),
@@ -41,7 +42,7 @@ class TemplateFactory extends Factory
             'overview' => $this->faker->paragraph(2),
             'thread_updated' => Carbon::today()->subDays(rand(0, 180))->format('Y-m-d'),
             'release_date' => Carbon::today()->subDays(rand(0, 180))->format('Y-m-d'),
-            'censorship' =>  $this->faker->numberBetween(1, 5),
+            'censorship' =>  random_int(1, 5),
             'langauge' => $langs,
             'genre' => $genres,
             'osSys' => $oss,
@@ -53,8 +54,6 @@ class TemplateFactory extends Factory
             'resolution' => $this->faker->numerify('####x####'),
             'pages' => $this->faker->numerify('###'),
             'content' => $this->faker->paragraph(),
-            'originalTitle' => $this->faker->words(3, true),
-            'length' => $this->faker->randomElement(['Very short (< 2 hours)', 'Short (2 - 10 hours)', 'Medium (10 - 30 hours)', 'Long (30 - 50 hours)', 'Very long (> 50 hours)']),
             'linkAsset' => $f95Url,
             'compatible' => $softwares,
             'installation' => $this->faker->paragraph(),
@@ -62,6 +61,8 @@ class TemplateFactory extends Factory
             'changelog' => $this->faker->paragraph(),
             'contentList' => $this->faker->paragraph(),
             'included' => $this->faker->paragraph,
+            'linkAsset' => $url,
+            'devLinks' => $url,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
 

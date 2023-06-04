@@ -28,7 +28,7 @@
             <span class="brand-img">
                 <span class="brand-img-text text-theme">T</span>
             </span>
-            <span class="brand-text">Template</span>
+            <span class="brand-text">{{ config('app.name', 'Laravel') }}</span>
         </a>
     </div>
     <!-- END brand -->

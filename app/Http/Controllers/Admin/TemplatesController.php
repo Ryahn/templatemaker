@@ -19,14 +19,14 @@ class TemplatesController extends Controller
         if ($request->ajax()) {
             $data = Template::select('id',  'type', 'game_name', 'devName', 'version')->get();
             return Datatables::of($data)
-            ->addIndexColumn()
-                ->addColumn('action', function($row){
-                    $view = '<a href="#" id="templateView" class="btn btn-primary btn-sm" style="margin-right: 5px;" data-id="'. $row->id.'">View</a>';
-                    $edit = '<a href="#" id="templateEdit" class="btn btn-warning btn-sm" style="margin-right: 5px;" data-id="'. $row->id.'">Edit</a>';
-                    $delete = '<a href="#" id="templateDelete" class="btn btn-danger btn-sm" style="margin-right: 5px;" data-id="'. $row->id.'">Delete</a>';
-                    return $view . $edit . $delete;
-                })
-                ->rawColumns(['action'])
+            // ->addIndexColumn()
+            //     ->addColumn('action', function($row){
+            //         $view = '<button id="templateView" class="btn btn-primary btn-sm" style="margin-right: 5px;" data-id="'. $row->id.'">View</button>';
+            //         $edit = '<button id="templateEdit" class="btn btn-warning btn-sm" style="margin-right: 5px;" data-id="'. $row->id.'">Edit</button>';
+            //         $delete = '<button id="templateDelete" class="btn btn-danger btn-sm" style="margin-right: 5px;" data-id="'. $row->id.'">Delete</button>';
+            //         return $view . $edit . $delete;
+            //     })
+            //     ->rawColumns(['action'])
                 ->make(true);
         }
         return view('admin.template.index');
@@ -59,9 +59,11 @@ class TemplatesController extends Controller
      * @param  \App\Models\Template  $template
      * @return \Illuminate\Http\Response
      */
-    public function show(Template $template)
+    public function show(string $id)
     {
-        //
+        $template = Template::findOrFail($id);
+        $returnHTML = view('admin.layout.modals.templateModal')->with('template', $template)->render();
+        return response()->json(['status' => 200, 'msg' => 'OK', 'html' => $returnHTML]);
     }
 
     /**
