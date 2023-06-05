@@ -56,4 +56,4 @@ if (!($template->osSys == NULL)) {
 @endforeach[/SIZE]
 @if (!($template->userThanks == NULL))[SIZE=2]Thanks for the share {{ $template->userThanks }}[/SIZE]@endif
 
-(Samples/Screenshoots)[/CENTER]
+(Samples/Screenshots)[/CENTER]

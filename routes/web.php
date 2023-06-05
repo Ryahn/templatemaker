@@ -35,12 +35,18 @@ Route::get('/help', function() {
 
 Route::get('/api/logs', [LogController::class, 'getLogs']);
 
+Route::get('/maker/recent', [TemplateController::class, 'recent'])->name('makerRecent');
+Route::get('/maker/recent/view/{id}', [TemplateController::class, 'view'])->name('maker.recent.view');
+Route::get('/maker/test/{id}', [TemplateController::class, 'test'])->name('makertest');
+
 
 Route::prefix('/maker')->group(function () {
     Route::get('/', [TemplateController::class, 'index'])->name('maker');
     Route::post('/store', [TemplateController::class, 'store'])->name('makerStore');
     Route::get('/{id}', [TemplateController::class, 'ajax'])->name('makerGet');
     Route::get('/edit/{id}', [TemplateController::class, 'edit'])->name('makerEdit');
+    ROute::get('/recent/store', [TemplateController::class, 'recentEditStore'])->name('recentEditStore');
+    // ROute::get('/recent/table', [TemplateController::class, 'table'])->name('maker.recent.table');
 });
 
 Auth::routes(['register' => false]);
@@ -65,11 +71,3 @@ Route::middleware('auth')->group(function() {
         });
     });
 });
-
-Route::post('/gitupdate', function() {
-    $command = Artisan::call('git:update');
-    if(!$command) return response()->json(['msg' => 'Pull Successful', 'status' => 200]);
-    return response()->json(['msg' => $command, 'status' => 409]);
-});
-
-Route::get('/maker/test/{id}', [TemplateController::class, 'test']);

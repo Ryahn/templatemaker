@@ -1,15 +1,12 @@
-@php 
-$type = $template->type;
-@endphp
 [CENTER](Cover Art)
 
 [B]Overview[/B]:
-{{ $template->overview }}[/CENTER]
+{!! $template->overview !!}[/CENTER]
 
-[B]Release Date[/B]: {{ $template->release_date }}
-[B]Asset[/B]: {{ $template->linkAsset }}
+[B]Artist/Developer[/B]: {{ $template->devName }}  @if (!($template->devLinks == NULL)){{ $template->devLinks }} @endif
+[B]Link To Asset[/B]: {{ $template->linkAsset }}
 [B]Compatible Software[/B]: {{ $template->compatible }} 
-[B]Included List[/B]: 
+[B]Included Models/Assets[/B]: 
 [SPOILER]
 {{ $template->included }}[/SPOILER]
 
@@ -17,4 +14,4 @@ $type = $template->type;
 [SIZE=5]LINK - LINK - LINK[/SIZE]
 @if (!($template->userThanks == NULL))[SIZE=2]Thanks for the share {{ $template->userThanks }}[/SIZE]@endif
 
-(Samples/Screenshoots)[/CENTER]
+(Samples/Screenshots)[/CENTER]

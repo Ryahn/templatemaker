@@ -9,38 +9,63 @@ use App\Models\Languages;
 use App\Models\OsSystems;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Yajra\DataTables\DataTables;
+
 
 class TemplateController extends Controller
 {
-    public function index()
+    private $tags, $sexual, $assets, $nonsexual, $technical, $languages, $os, $unreal, $blender, $none;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $tags = Tags::all();
-        $sexual = $tags->filter(function ($tag) {
+        $t = Tags::all();
+        $this->tags = $t->filter(function ($tag) {
             return $tag->optgroup == 'sexual';
         })->values();
-        $assets = $tags->filter(function ($tag) {
+
+        $this->sexual = $t->filter(function ($tag) {
+            return $tag->optgroup == 'sexual';
+        })->values();
+        
+        $this->assets = $t->filter(function ($tag) {
             return $tag->optgroup == 'assets';
         })->values();
-        $nonsexual = $tags->filter(function ($tag) {
+        
+        $this->nonsexual = $t->filter(function ($tag) {
             return $tag->optgroup == 'nonsexual';
         })->values();
-        $technical = $tags->filter(function ($tag) {
+        
+        $this->technical = $t->filter(function ($tag) {
             return $tag->optgroup == 'technical';
         })->values();
-        $languages = Languages::all();
-        $os = OsSystems::all();
+        
+        $this->languages = Languages::all();
+        
+        $this->os = OsSystems::all();
         $software = Software::all();
-        $unreal = $software->filter(function ($soft) {
+
+        $this->unreal = $software->filter(function ($soft) {
             return $soft->group == 'unreal';
         });
-        $blender = $software->filter(function ($soft) {
+
+        $this->blender = $software->filter(function ($soft) {
             return $soft->group == 'blender';
         });
-        $none = $software->filter(function ($soft) {
+
+        $this->none = $software->filter(function ($soft) {
             return $soft->group == 'none';
         });
+    }
 
-        return view('template.index', compact('tags', 'sexual', 'assets', 'nonsexual', 'technical', 'languages', 'os', 'unreal', 'blender', 'none'));
+    public function index()
+    {
+
+        return view('template.index', ['tags' => $this->tags, 'sexual' => $this->sexual, 'assets' => $this->assets, 'nonsexual' => $this->nonsexual, 'technical' => $this->technical, 'languages' => $this->languages, 'os' => $this->os, 'unreal' => $this->unreal, 'blender' => $this->blender, 'none' => $this->none]);
     }
 
     public function store(Request $request)
@@ -109,6 +134,34 @@ class TemplateController extends Controller
         $template = Template::findOrFail($id);
         $returnHTML = view("template.types.$template->type")->with('template', $template)->render();
         return view('template.test', compact('returnHTML', 'tags', 'sexual', 'assets', 'nonsexual', 'technical', 'languages', 'os', 'unreal', 'blender', 'none'));
+    }
+
+    public function recent(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Template::select('id', 'type', 'game_name', 'devName', 'version')->orderBy('id', 'DESC')->get();
+            return Datatables::of($data)
+            // ->addIndexColumn()
+                // ->addColumn('action', function($row){
+                //     $delete = '<button id="templateDelete" class="btn btn-danger btn-sm" style="margin-right: 5px;" data-id="'. $row->id.'">Delete</button>';
+                //     return $delete;
+                // })
+                // ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('template.recent');
+    }
+
+    public function view(string $id)
+    {
+        $template = Template::findOrFail($id);
+        $html = view('template.modal', ['template' => $template, 'tags' => $this->tags, 'sexual' => $this->sexual, 'assets' => $this->assets, 'nonsexual' => $this->nonsexual, 'technical' => $this->technical, 'languages' => $this->languages, 'os' => $this->os, 'unreal' => $this->unreal, 'blender' => $this->blender, 'none' => $this->none])->render();
+        return response()->json(['html' => $html]);
+    }
+
+    public function recentEditStore(Request $request)
+    {
+        $inputs = $request->except(['_token','/maker/store']);
     }
     
 }

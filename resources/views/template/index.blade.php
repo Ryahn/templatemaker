@@ -139,7 +139,7 @@
                                                         name="thread_updated" placeholder="yyyy/mm/dd">
                                                 </div>
                                             </div>
-                                            <div class="col-xl-4">{{-- Release --}}
+                                            <div class="col-xl-4" id="releaseDateShow">{{-- Release --}}
                                                 <div class="mb-3">
                                                     <label class="form-label">Release Date</label>
                                                     <input type="text" class="form-control" id="release_date"
@@ -258,6 +258,9 @@
                                                         You</label>
                                                     <input type="text" name="userThanks" id="userThanks"
                                                         class="form-control">
+                                                        <small id="trailerHelpBlock" class="form-text text-muted">
+                                                            <kbd>Must be link to user's profile: https://f95zone.to/members/ryahn.99264/</kbd>
+                                                          </small>
                                                 </div>
                                             </div>
                                             <div class="col-xl-4" id="vndbshow">{{-- VNDB --}}
