@@ -23,6 +23,16 @@
                     <hr class="mb-4">
 
                     <div class="col-lg-8 col-md-10 col-12">
+                        <h5 class="mt-4"> <span class="p-2 bg-gradient.bg-gray-400 border-success rounded text-success"> Version 3.0.7</span>
+                            - 7th, June 2023</h5>
+                        <ul class="list-unstyled mt-3">
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Assets now working properly</li>
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>You can now edit BBCode and save it</li>
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Fixed an issue with copy buttons submitting form</li>
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Upgraded PHP to 8.2</li>
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Started recent view page to be able to edit templates</li>
+                        </ul>
+
                         <h5 class="mt-4"> <span class="p-2 bg-gradient.bg-gray-400 border-success rounded text-success"> Version 3.0.5</span>
                             - 31st, May 2023</h5>
                         <ul class="list-unstyled mt-3">
