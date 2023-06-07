@@ -30,7 +30,7 @@ $lang2 = explode(', ', $template->langauge);
                         <label class="form-label" for="game_name">Game/Comic/Manga/Animation/Collection
                             name</label>
                         <input type="text" class="form-control" id="game_name" name="game_name"
-                            placeholder="pezzo is gay" value={{ $template->game_name }}>
+                            placeholder="pezzo is gay" value={!! $template->game_name !!}>
                     </div>
 
                 </div>

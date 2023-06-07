@@ -45,6 +45,7 @@ Route::prefix('/maker')->group(function () {
     Route::post('/store', [TemplateController::class, 'store'])->name('makerStore');
     Route::get('/{id}', [TemplateController::class, 'ajax'])->name('makerGet');
     Route::get('/edit/{id}', [TemplateController::class, 'edit'])->name('makerEdit');
+    Route::post('/bbcode', [TemplateController::class, 'storeBBCode']);
     ROute::get('/recent/store', [TemplateController::class, 'recentEditStore'])->name('recentEditStore');
     // ROute::get('/recent/table', [TemplateController::class, 'table'])->name('maker.recent.table');
 });

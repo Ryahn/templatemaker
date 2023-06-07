@@ -154,6 +154,9 @@ $('#recentTemplateTable tbody').on('click', 'tr', function () {
         success: function(result) {
             $('#recentModalViewContent').empty().html(result.html);
             $("#recentViewModal").modal("show");
+            handleSelectizeLoad();
+            handleRenderDatepicker1();
+            handleHideType(result.template.type);
         }
     });
 });

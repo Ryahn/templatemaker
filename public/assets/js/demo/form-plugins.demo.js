@@ -6,14 +6,14 @@ Website: http://www.seantheme.com/hud/
 */
 
 var handleRenderDatepicker = function() {
-	$('#thread_updated').datepicker({
-		autoclose: true,
-		format: 'yyyy/mm/dd'
-	});
-	$('#release_date').datepicker({
-		autoclose: true,
-		format: 'yyyy/mm/dd'
-	});
+	// $('#thread_updated').datepicker({
+	// 	autoclose: true,
+	// 	format: 'yyyy/mm/dd'
+	// });
+	// $('#release_date').datepicker({
+	// 	autoclose: true,
+	// 	format: 'yyyy/mm/dd'
+	// });
 	$('#datepicker-range').datepicker({
 		autoclose: true
 	});

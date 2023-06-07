@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tags;
+use App\Models\BBCode;
 use App\Models\Software;
 use App\Models\Template;
 use App\Models\Languages;
 use App\Models\OsSystems;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\DataTables;
+use Illuminate\Support\Facades\Validator;
 
 
 class TemplateController extends Controller
@@ -93,8 +94,22 @@ class TemplateController extends Controller
     {
         $template = Template::findOrFail($id);
         $returnHTML = view("template.types.$template->type")->with('template', $template)->render();
-        return response()->json(['status' => 200, 'msg' => 'OK', 'template' => $template, 'html' => $returnHTML]);
+        $bbcode = BBCode::updateOrCreate(
+            ['template_id' =>  $template->id], //Where
+            ['bbcode' => $returnHTML] //What to update
+        );
+        return response()->json(['status' => 200, 'msg' => 'OK', 'template' => $template, 'html' => $bbcode->bbcode]);
         // return response($returnHTML, 200)->header('Content-Type', 'text/html');
+    }
+
+    public function storeBBCode(Request $request)
+    {
+        $inputs = $request->except(['_token','/maker/bbcode']);
+        BBCode::updateOrCreate(
+            ['template_id' => $inputs['id']],
+            ['bbcode' => $inputs['bbcode']]
+        );
+        return response()->json(['msg' => 'BBCode updated successfully!', 'status' => 200]);
     }
 
     public function edit(string $id)
@@ -156,7 +171,7 @@ class TemplateController extends Controller
     {
         $template = Template::findOrFail($id);
         $html = view('template.modal', ['template' => $template, 'tags' => $this->tags, 'sexual' => $this->sexual, 'assets' => $this->assets, 'nonsexual' => $this->nonsexual, 'technical' => $this->technical, 'languages' => $this->languages, 'os' => $this->os, 'unreal' => $this->unreal, 'blender' => $this->blender, 'none' => $this->none])->render();
-        return response()->json(['html' => $html]);
+        return response()->json(['html' => $html, 'template' => $template]);
     }
 
     public function recentEditStore(Request $request)

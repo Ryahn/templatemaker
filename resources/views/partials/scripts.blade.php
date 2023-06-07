@@ -42,6 +42,7 @@
 <script src="{{ asset('assets/plugins/datatables.net-buttons-bs5/js/buttons.bootstrap5.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables.net-responsive/js/dataTables.responsive.min.js') }}"></script>
 <script src="{{ asset('assets/plugins/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js') }}"></script>
+<script src="{{ asset('assets/js/jquery.editable.min.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 
     <!-- ================== END core-js ================== -->

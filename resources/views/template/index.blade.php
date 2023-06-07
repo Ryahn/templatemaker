@@ -461,11 +461,13 @@
                                             </div>
                                         </div>
                                         <div class="col-xl-12">
+                                            <form id="bbcodeCopyArea">
                                             <div class="form-group mb-3">
-                                                <button class="btn btn-primary mb-2 copyToClipBoard" id="bbcodeCopy" data-clipboard-target="#bbcode"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i>Copy BBCODE</button>
-                                                <textarea class="form-control" id="bbcode" rows="40" readonly></textarea>
-                                                
+                                                <button class="btn btn-success mb-2 copyToClipBoard" id="bbcodeCopy" data-clipboard-target="#bbcodeArea"><i class="fas fa-lg fa-fw me-2 fa-clipboard"></i>Copy BBCODE</button>
+                                                <button class="btn btn-primary mb-2" id="saveBBCode" data-id=""><i class="fas fa-lg fa-fw me-2 fa-check"></i>Save BBCODE</button>
+                                                <textarea class="form-control" id="bbcodeArea" rows="40" name="bbcode"></textarea>
                                             </div>
+                                            </form>
                                         </div>
                                     </div>
 
@@ -494,11 +496,6 @@
 @endsection
 @section('scripts')
     <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
 
         $("#templateForm").on('submit', function(e) {
 
@@ -520,7 +517,8 @@
                             success: function(data1) {
                                 $('#titleFormat').val(`${data1.template.game_name} [${data1.template.version}][${data1.template.devName}]`);
                                 $('#genreFormat').val(data1.template.genre);
-                                $('#bbcode').val(data1.html);
+                                $('#saveBBCode').attr('data-id', data.id);
+                                $('#bbcodeArea').val(data1.html);
                             }
                         })
                     } else {
@@ -536,6 +534,42 @@
             });
 
         });
+
+$('#bbcodeCopy').on('click', function(e) {
+    e.preventDefault();
+});
+
+$("#saveBBCode").on('click', function(e) {
+
+e.preventDefault();
+var form = $('bbcodeCopyArea');
+var formData = {
+    bbcode: $('#bbcodeArea').val(),
+    id: $('#saveBBCode').attr('data-id')
+}
+
+$.ajax({
+    type: 'POST',
+    url: "/maker/bbcode",
+    data: formData,
+    success: function(data) {
+      console.log(data)
+        if($.isEmptyObject(data.errors)){
+            $('.toast-body').empty().append(data.msg);
+            $('.toast').toast('show');
+        } else {
+            $('.toast-body').empty();
+            $.each( data.errors, function( key, value ) {
+                $('.toast-body').append(`<p>${value}</p>`);
+            });
+            $('.toast').toast('show', {
+            delay: 10000
+            });
+        }
+    }
+});
+
+});
 
         var clipboard = new ClipboardJS('.copyToClipBoard');
 
