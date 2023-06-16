@@ -156,12 +156,13 @@ class TemplateController extends Controller
         if ($request->ajax()) {
             $data = Template::select('id', 'type', 'game_name', 'devName', 'version')->orderBy('id', 'DESC')->get();
             return Datatables::of($data)
-            // ->addIndexColumn()
-                // ->addColumn('action', function($row){
-                //     $delete = '<button id="templateDelete" class="btn btn-danger btn-sm" style="margin-right: 5px;" data-id="'. $row->id.'">Delete</button>';
-                //     return $delete;
-                // })
-                // ->rawColumns(['action'])
+            ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    $edit = '<button id="edit" class="btn btn-primary btn-sm" style="margin-right: 5px;" data-id="'. $row->id.'">Edit</button>';
+                    $view = '<button id="bbcode" class="btn btn-warning btn-sm" style="margin-right: 5px;" data-id="'. $row->id.'">BBCode</button>';
+                    return $edit . $view;
+                })
+                ->rawColumns(['action'])
                 ->make(true);
         }
         return view('template.recent');

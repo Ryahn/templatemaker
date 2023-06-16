@@ -49,6 +49,7 @@
                                                         <th>Game Name</th>
                                                         <th>Dev Name</th>
                                                         <th>Version</th>
+                                                        <th>Action</th>
                                                     </tr>
                                                 </thead>
                                             </table>
@@ -81,84 +82,4 @@
 
         </div>
         <!-- END container -->
-@endsection
-@section('scripts')
-<script>
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
-
-$("#recentModalForm").on('submit', function(e) {
-
-    e.preventDefault();
-    console.log($(this).serialize())
-
-    // $.ajax({
-    //     type: 'POST',
-    //     url: "/maker/store",
-    //     data: $(this).serialize(),
-    //     success: function(data) {
-    //         if ($.isEmptyObject(data.errors)) {
-    //             // console.log(data)
-    //             $('.toast-body').empty().append(data.msg);
-    //             $('.toast').toast('show');
-    //             $.ajax({
-    //                 type: 'GET',
-    //                 url: "/maker" + "/" + data.id,
-    //                 success: function(data1) {
-    //                     $('#titleFormat').val(
-    //                         `${data1.template.game_name} [${data1.template.version}][${data1.template.devName}]`
-    //                         );
-    //                     $('#genreFormat').val(data1.template.genre);
-    //                     $('#bbcode').val(data1.html);
-    //                 }
-    //             })
-    //         } else {
-    //             $('.toast-body').empty();
-    //             $.each(data.errors, function(key, value) {
-    //                 $('.toast-body').append(`<p>${value}</p>`);
-    //             });
-    //             $('.toast').toast('show', {
-    //                 delay: 10000
-    //             });
-    //         }
-    //     }
-    // });
-
-});
-
-var templateTable = $('#recentTemplateTable').DataTable({
-    dom: "<'row mb-3'<'col-sm-4'l><'col-sm-8 text-end'<'d-flex justify-content-end'fB>>>t<'d-flex align-items-center'<'me-auto'i><'mb-0'p>>",
-    processing: true,
-    serverSide: true,
-    responsive: true,
-    order: [[ 0, "desc" ]],
-    ajax: "/maker/recent",
-    columns: [
-        {data: 'id', name: 'id'},
-        {data: 'type', name: 'type'},
-        {data: 'game_name', name: 'game_name'},
-        {data: 'devName', name: 'devName'},
-        {data: 'version', name: 'version'},
-        // {data: 'action', name: 'action', orderable: false, searchable: false},
-    ]
-});
-
-$('#recentTemplateTable tbody').on('click', 'tr', function () {
-    var data = templateTable.row( this ).data();
-    $.ajax({
-        type: 'GET',
-        url: '/maker/recent/view/'+data.id,
-        success: function(result) {
-            $('#recentModalViewContent').empty().html(result.html);
-            $("#recentViewModal").modal("show");
-            handleSelectizeLoad();
-            handleRenderDatepicker1();
-            handleHideType(result.template.type);
-        }
-    });
-});
-</script>
 @endsection

@@ -5,7 +5,7 @@ $lang2 = explode(', ', $template->langauge);
 @endphp
 <!-- Modal Header -->
 <div class="modal-header">
-    <h4 class="modal-title">{{ $template->game_name }} [{{ $template->version }}][{{ $template->devName }}]</h4>
+    <h4 class="modal-title">{{ $template->game_name }} @if (!($template->version == NULL)) [{{ $template->version }}]@endif[{{ $template->devName }}]</h4>
     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
 </div>
 

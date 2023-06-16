@@ -15,5 +15,6 @@ class VerifyCsrfToken extends Middleware
         'http://template.test/gitupdate',
         'https://template.lordainz.xyz/gitupdate',
         'gitupdate/*',
+        'table/*'
     ];
 }

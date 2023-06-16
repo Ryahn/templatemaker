@@ -35,18 +35,18 @@ Route::get('/help', function() {
 
 Route::get('/api/logs', [LogController::class, 'getLogs']);
 
-Route::get('/maker/recent', [TemplateController::class, 'recent'])->name('makerRecent');
-Route::get('/maker/recent/view/{id}', [TemplateController::class, 'view'])->name('maker.recent.view');
-Route::get('/maker/test/{id}', [TemplateController::class, 'test'])->name('makertest');
-
 
 Route::prefix('/maker')->group(function () {
-    Route::get('/', [TemplateController::class, 'index'])->name('maker');
+    Route::get('/recent', [TemplateController::class, 'recent'])->name('makerRecent');
+    Route::get('/recent/view/{id}', [TemplateController::class, 'view'])->name('maker.recent.view');
+    Route::get('/test/{id}', [TemplateController::class, 'test'])->name('makertest');
     Route::post('/store', [TemplateController::class, 'store'])->name('makerStore');
     Route::get('/{id}', [TemplateController::class, 'ajax'])->name('makerGet');
     Route::get('/edit/{id}', [TemplateController::class, 'edit'])->name('makerEdit');
     Route::post('/bbcode', [TemplateController::class, 'storeBBCode']);
     ROute::get('/recent/store', [TemplateController::class, 'recentEditStore'])->name('recentEditStore');
+    Route::get('/', [TemplateController::class, 'index'])->name('maker');
+
     // ROute::get('/recent/table', [TemplateController::class, 'table'])->name('maker.recent.table');
 });
 
