@@ -3,15 +3,15 @@
 namespace App\Models;
 
 use Laravel\Sanctum\HasApiTokens;
-use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Jakyeru\Larascord\Traits\InteractsWithDiscord;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, InteractsWithDiscord;
 
     /**
      * The attributes that are mass assignable.
@@ -30,13 +30,28 @@ class User extends Authenticatable implements JWTSubject
         'remember_token',
     ];
 
-    /**
+        /**
      * The attributes that should be cast.
      *
-     * @var array<string, string>
+     * @var array
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'id' => 'integer',
+        'username' => 'string',
+        'global_name' => 'string',
+        'discriminator' => 'string',
+        'email' => 'string',
+        'avatar' => 'string',
+        'verified' => 'boolean',
+        'banner' => 'string',
+        'banner_color' => 'string',
+        'accent_color' => 'string',
+        'locale' => 'string',
+        'mfa_enabled' => 'boolean',
+        'premium_type' => 'integer',
+        'public_flags' => 'integer',
+        'roles' => 'json',
+        'is_admin' => 'boolean',
     ];
 
     public function is_admin()
@@ -47,13 +62,7 @@ class User extends Authenticatable implements JWTSubject
         return false;
     }
 
-    public function getJWTIdentifier()
-    {
-        return $this->getKey();
-    }
-    
-    public function getJWTCustomClaims()
-    {
-        return [];
+    function getAvatar() {
+        return "https://cdn.discordapp.com/avatars/$this->id/$this->avatar.png";
     }
 }

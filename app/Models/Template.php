@@ -22,10 +22,16 @@ class Template extends Model
      * Set the languages
      *
      */
+    public function getLangaugeAttribute($value)
+    {
+        if (!$value) return null;
+        return implode(', ', json_decode($value, true));
+    }
+
     public function setLangaugeAttribute($value)
     {
         if (!$value) return $this->attributes['langauge'] = null;
-        $this->attributes['langauge'] = implode(', ', $value);
+        return $this->attributes['langauge'] = json_encode($value);
     }
 
 
@@ -33,40 +39,67 @@ class Template extends Model
      * Set the languages
      *
      */
+    public function getGenreAttribute($value)
+    {
+        if (!$value) return null;
+        return implode(', ', json_decode($value, true));
+    }
+
     public function setGenreAttribute($value)
     {
         if (!$value) return $this->attributes['genre'] = null;
-        $this->attributes['genre'] = implode(', ', $value);
+        return $this->attributes['genre'] = json_encode($value);
     }
 
     /**
      * Set the languages
      *
      */
+    public function getOsSysAttribute($value)
+    {
+        if (!$value) return null;
+        // $value = json_decode($value, true);
+        return implode(', ', json_decode($value, true));
+    }
+
     public function setOsSysAttribute($value)
     {
-        if (!$value) return $this->attributes['osSys'] = null;
-        $this->attributes['osSys'] = implode(', ', $value);
+        if (!$value) return $this->attributes['os'] = null;
+        return $this->attributes['os'] = json_encode($value);
     }
 
     /**
      * Set the languages
      *
      */
+    public function getVoicedAttribute($value)
+    {
+        if (!$value) return null;
+        // $value = json_decode($value, true);
+        return implode(', ', json_decode($value, true));
+    }
+
     public function setVoicedAttribute($value)
     {
         if (!$value) return $this->attributes['voiced'] = null;
-        $this->attributes['voiced'] = implode(', ', $value);
+        return $this->attributes['voiced'] = json_encode($value);
     }
 
     /**
      * Set the languages
      *
      */
+    public function getCompatibleAttribute($value)
+    {
+        if (!$value) return null;
+        // $value = json_decode($value, true);
+        return implode(', ', json_decode($value, true));
+    }
+
     public function setCompatibleAttribute($value)
     {
         if (!$value) return $this->attributes['compatible'] = null;
-        $this->attributes['compatible'] = implode(', ', $value);
+        return $this->attributes['compatible'] = json_encode($value);
     }
 
     public function setCensorshipAttribute($value)
@@ -105,6 +138,14 @@ class Template extends Model
         return "[user=$user[1]]$user[0][/user]";
     }
 
+    function setUserThanksAttribute($value) {
+        if (!$value) return $this->attributes['userThanks'] = null;
+        $parts = explode(']', $value);
+        $id = explode('=', $parts[0])[1];
+        $user = explode('[', $parts[1])[0];
+        $this->attributes['userThanks'] = "https://f95zone.to/members/$user.$id";
+    }
+
     public function getPrequelAttribute($value)
     {
         if (!$value) return null;
@@ -114,6 +155,14 @@ class Template extends Model
         $name = ucwords(implode(' ', $parts));
         return "[url=". $value ."]" . $name ."[/url]";
     }
+    public function setPrequelAttribute($value)
+    {
+        if (!$value) return $this->attributes['prequel'] = null;
+        $parts = explode('/', $value);
+        $url = explode(']', $parts[4])[0];
+        return $this->attributes['prequel'] = "https://f95zone.to/threads/$url";
+    }
+
     public function getSequelAttribute($value)
     {
         if (!$value) return null;
@@ -122,6 +171,14 @@ class Template extends Model
         unset($parts[array_key_last($parts)]);
         $name = ucwords(implode(' ', $parts));
         return "[url=". $value ."]" . $name ."[/url]";
+    }
+
+    public function setSequelAttribute($value)
+    {
+        if (!$value) return $this->attributes['sequel'] = null;
+        $parts = explode('/', $value);
+        $url = explode(']', $parts[4])[0];
+        return $this->attributes['sequel'] = "https://f95zone.to/threads/$url";
     }
 
     private function getVn($value) {
@@ -206,9 +263,9 @@ class Template extends Model
         return $data['results'][0]['titles'][0]['latin'];
     }
 
-    public function setTrailerAttribute($value)
+    public function getTrailerAttribute($value)
     {
-        if (!$value) return $this->attributes['trailer'] = null;
+        if (!$value) return null;
         $parts = explode('/', $value);
 
         $key = "";
@@ -233,12 +290,37 @@ class Template extends Model
             $bbcode = "[media=youtube]dQw4w9WgXcQ[/media]";
         }
 
-        $this->attributes['trailer'] = $bbcode;
+        return $bbcode;
     }
 
-    public function setDevLinksAttribute($value)
+    public function setTrailerAttribute($value)
     {
-        if (!$value) return $this->attributes['devLinks'] = null;
+        if (!$value) return $this->attributes['trailer'] = null;
+        $value = strtolower($value);
+        $parts = explode('[media=', $value);
+        $part1 = explode('[/media]', $parts[1]);
+        $part2 = explode(']', $part1[0]);
+
+        $url = "";
+        if (in_array('youtube', $part2)) {
+            $url = "https://www.youtube.com/watch?v=$part2[1]";
+        } elseif (in_array('imgur', $part2)) {
+            $url = "https://i.imgur.com/$part2[1].mp4";
+        } elseif (in_array('vimeo', $part2)) {
+            $url = "https://vimeo.com/$part2[1]";
+        } elseif (in_array('steamstore', $part2)) {
+            $url = "https://store.steampowered.com/app/$part2[1]";
+        } elseif (in_array('googledrive', $part2)) {
+            $url = "https://drive.google.com/file/d/$part2[1]/view";
+        } else {
+            $url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+        }
+        return $this->attributes['trailer'] = $url;
+    }
+
+    public function getDevLinksAttribute($value)
+    {
+        if (!$value) return null;
         $parts = explode(',', $value);
         $devLinks = [];
         foreach ($parts as $part) {
@@ -246,12 +328,23 @@ class Template extends Model
             $url = "[url=". $link[1] . "]" . $link[0] . "[/url]";
             $devLinks[] = $url;
         }
-        $this->attributes['devLinks'] = implode(' - ', $devLinks);
+        return implode(' - ', $devLinks);
     }
 
-    public function setLinkAssetAttribute($value)
+    public function setDevLinksAttribute($value)
     {
-        if (!$value) return $this->attributes['linkAsset'] = null;
+        if (!$value) return $this->attributes['devLinks'] = null;
+        $parts = explode(' - ', $value);
+        $part1 = explode('[url=', $parts[0])[1];
+        $part2 = explode(']', $part1);
+        $part3 = explode('[', $part2[1]);
+
+        return $this->attributes['devLinks'] = "$part3[0]|$part2[0]";
+    }
+
+    public function getLinkAssetAttribute($value)
+    {
+        if (!$value) return null;
         $parts = explode(',', $value);
         $linkAssets = [];
         foreach ($parts as $part) {
@@ -259,7 +352,18 @@ class Template extends Model
             $url = "[url=". $link[1] . "]" . $link[0] . "[/url]";
             $linkAssets[] = $url;
         }
-        $this->attributes['linkAsset'] = implode(' - ', $linkAssets);
+        return implode(' - ', $linkAssets);
+    }
+
+    public function setLinkAssetAttribute($value)
+    {
+        if (!$value) return $this->attributes['linkAsset'] = null;
+        $parts = explode(' - ', $value);
+        $part1 = explode('[url=', $parts[0])[1];
+        $part2 = explode(']', $part1);
+        $part3 = explode('[', $part2[1]);
+
+        return $this->attributes['linkAsset'] = "$part3[0]|$part2[0]";
     }
 
 }

@@ -43,13 +43,13 @@
             <div class="dropdown-menu fade dropdown-menu-end w-300px text-center p-0 mt-1">
 
                 <div class="row row-grid gx-0">
-                    @if (Route::has('login') && !Auth::check()) <div class="col-4"> @else <div class="col-6"> @endif
+                    @if (Route::has('login')) <div class="col-4"> @else <div class="col-6"> @endif
                         <a href="/changelog" class="dropdown-item text-decoration-none p-3 bg-none">
                             <div><i class="bi bi-terminal h2 opacity-5 d-block my-1"></i></div>
                             <div class="fw-500 fs-10px text-inverse">Change Log</div>
                         </a>
                     </div>
-                    @if (Route::has('login') && !Auth::check()) <div class="col-4"> @else <div class="col-6"> @endif
+                    @if (Route::has('login')) <div class="col-4"> @else <div class="col-6"> @endif
                         <a href="/help" class="dropdown-item text-decoration-none p-3 bg-none">
                             <div class="position-relative">
                                 <i class="bi bi-sliders h2 opacity-5 d-block my-1"></i>
@@ -57,26 +57,35 @@
                             <div class="fw-500 fs-10px text-inverse">Help</div>
                         </a>
                     </div>
-                    @if (Route::has('login') && !Auth::check())
+                    @auth
                     <div class="col-4">
-                        <a href="{{ url('/login') }}" class="dropdown-item text-decoration-none p-3 bg-none">
+                        <a href="#" class="dropdown-item text-decoration-none p-3 bg-none" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                            <div class="position-relative">
+                                <i class="bi bi-key-fill h2 opacity-5 d-block my-1"></i>
+                            </div>
+                            <div class="fw-500 fs-10px text-inverse">Logout</div>
+                        </a>
+                    </div>
+                    @else
+                    <div class="col-4">
+                        <a href="{{ route('login') }}" class="dropdown-item text-decoration-none p-3 bg-none">
                             <div class="position-relative">
                                 <i class="bi bi-key-fill h2 opacity-5 d-block my-1"></i>
                             </div>
                             <div class="fw-500 fs-10px text-inverse">Login</div>
                         </a>
                     </div>
-                @endif
-
+                    @endauth
                 </div>
             </div>
-            @if (Route::has('login') && Auth::check())
+            @auth
             <div class="menu-item dropdown dropdown-mobile-full">
                 <a href="#" data-bs-toggle="dropdown" data-bs-display="static" class="menu-link">
-                    {{-- <div class="menu-img online">
-                        <img src="assets/img/user/profile.jpg" alt="Profile" height="60">
-                    </div> --}}
-                    <div class="menu-text d-sm-block d-none w-170px">{{ Auth::user()->name }}</div>
+                    <div class="menu-img online">
+                        <img src="{{ Auth::user()->getAvatar() }}" alt="Profile" height="60">
+                    </div>
+                    <div class="menu-text d-sm-block d-none w-170px">{{ Auth::user()->username }}</div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end me-lg-3 fs-11px mt-1">
                     {{-- <a class="dropdown-item d-flex align-items-center" href="profile.html">PROFILE <i class="bi bi-person-circle ms-auto text-theme fs-16px my-n1"></i></a>
@@ -91,7 +100,7 @@
                     </form>
                 </div>
             </div>
-            @endif
+            @endauth
         </div>
 
 

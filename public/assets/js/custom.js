@@ -112,7 +112,6 @@ $(document).ready(function () {
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-      'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdGVtcGxhdGUudGVzdC9hcGkvbG9naW4iLCJpYXQiOjE2ODYzNjIwNzAsIm5iZiI6MTY4NjM2MjA3MCwianRpIjoidUVFcXVRS3Qxd3llVGRpQyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.vWUaMQhKEQ-n8V3D5fgYna233mzNeqBDQSguig5EqDY',
     }
   });
   handleSelectizeLoad();
@@ -194,23 +193,11 @@ $(document).ready(function () {
 
     var data_row = templateTable.row($(this).parents('tr')).data(); // here is the change
     $.ajax({
-      beforeSend: function (xhr) {
-        xhr.setRequestHeader("Authorization", "Bearer {{ config('app.token') }}")
-      },
       type: 'GET',
-      url: '/api/table/view/bbcode/' + data_row.id,
+      url: '/backend/table/view/bbcode/' + data_row.id,
       success: function (result) {
         $('#recentModalViewContent').empty().html(result.html);
         $("#recentViewModal").modal("show");
-      }
-    });
-    $(document).ready(function () {
-      var handleSaveBBCode = function () {
-        $('#recentEditSave').on('click', function (e) {
-          e.preventDefault();
-
-          console.log($('#viewBBCodeForm').serialize())
-        })
       }
     });
 
@@ -219,15 +206,14 @@ $(document).ready(function () {
 
     var data_row = templateTable.row($(this).parents('tr')).data(); // here is the change
     $.ajax({
-      beforeSend: function (xhr) {
-        xhr.setRequestHeader("Authorization", "Bearer {{ config('app.token') }}")
-      },
       type: 'GET',
-      url: '/api/table/edit/' + data_row.id,
+      url: '/backend/table/edit/' + data_row.id,
       success: function (result) {
         $('#recentModalViewContent').empty().html(result.html);
         $("#recentViewModal").modal("show");
       }
     });
   });
+
+  
 });

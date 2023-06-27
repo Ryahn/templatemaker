@@ -17,7 +17,7 @@
                         </ul>
 
                         <h1 class="page-header">
-                            {{ config('app.name', 'Laravel') }} <small>F95zone thread template system</small>
+                            {{ config('app.name', 'Laravel') }} {{ config('app.version') }} <small>F95zone thread template system</small>
                         </h1>
 
                         <hr class="mb-4">

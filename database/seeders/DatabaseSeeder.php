@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LanguageSeeder::class);
         $this->call(OsSeeder::class);
         $this->call(SoftwareSeeder::class);
-        $this->call(UserSeeder::class);
+        // $this->call(UserSeeder::class);
         $this->call(TemplateSeeder::class);
     }
 }

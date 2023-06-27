@@ -5,10 +5,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TemplateController;
-use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GenreController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TemplatesController;
+use App\Http\Controllers\Backend\DatabaseTableController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +22,19 @@ use App\Http\Controllers\Admin\TemplatesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 })->name('homeIndex');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+});
+
+
 
 Route::get('/changelog', function() {
     return view('changelog.index');
@@ -33,8 +44,9 @@ Route::get('/help', function() {
     return view('help.index');
 })->name('help');
 
-Route::get('/api/logs', [LogController::class, 'getLogs']);
+// Auth::routes(['register' => false]);
 
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::prefix('/maker')->group(function () {
     Route::get('/recent', [TemplateController::class, 'recent'])->name('makerRecent');
@@ -50,13 +62,17 @@ Route::prefix('/maker')->group(function () {
     // ROute::get('/recent/table', [TemplateController::class, 'table'])->name('maker.recent.table');
 });
 
-Auth::routes(['register' => false]);
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-
+Route::prefix('/backend')->group(function () {
+    Route::post('/table/view/bbcode/save', [DatabaseTableController::class, 'saveBBCode'])->name('api.save.bbcode');
+    Route::get('/table/recent', [DatabaseTableController::class, 'recentIndex'])->name('api.recent.index');
+    Route::get('/table/view/bbcode/{id}', [DatabaseTableController::class, 'viewBBCode'])->name('api.view.bbcode');
+    Route::get('/table/edit/{id}', [DatabaseTableController::class, 'edit'])->name('api.edit.template');
+    Route::post('/table/save', [DatabaseTableController::class, 'save'])->name('api.save.template');
+});
 
 Route::middleware('auth')->group(function() {
+    
+
     Route::middleware('is_admin')->prefix('admin')->group(function() {
         Route::get('/', [DashboardController::class, 'index'])->name('adminIndex');
         Route::get('/datatables/logs', [DashboardController::class, 'logs'])->name('adminDatatablesLogs');
