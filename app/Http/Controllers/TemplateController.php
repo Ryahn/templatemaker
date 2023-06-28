@@ -160,7 +160,8 @@ class TemplateController extends Controller
                 ->addColumn('action', function($row){
                     $edit = '<button id="edit" class="btn btn-primary btn-sm" style="margin-right: 5px;" data-id="'. $row->id.'">Edit</button>';
                     $view = '<button id="bbcode" class="btn btn-warning btn-sm" style="margin-right: 5px;" data-id="'. $row->id.'">BBCode</button>';
-                    return $edit . $view;
+                    $import = '<button id="import" class="btn btn-danger btn-sm show_confirm" style="margin-right: 5px;" data-id="'. $row->id.'">Import BBCode</button>';
+                    return $edit . $view . $import;
                 })
                 ->rawColumns(['action'])
                 ->make(true);

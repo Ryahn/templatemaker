@@ -14,7 +14,7 @@
                     <div class="form-group mb-3">
                         <label class="form-label" for="bbcode">BBCode</label>
                         <input type="hidden" name="id" value="{{ $template->id }}">
-                        <textarea class="form-control" id="bbcode" rows="40" name="bbcode">{!! $template->bbcode->bbcode !!}</textarea>
+                        <textarea class="form-control" id="bbcode" rows="40" name="bbcode">{!! $bbcode->bbcode !!}</textarea>
                     </div>
                 </div>
         </div>

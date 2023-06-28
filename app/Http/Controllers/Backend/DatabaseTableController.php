@@ -14,6 +14,8 @@ use App\Http\Controllers\Controller;
 
 class DatabaseTableController extends Controller
 {
+
+    protected $tags, $sexual, $assets, $nonsexual, $technical, $languages, $os, $unreal, $blender, $none;
     /**
      * Create a new controller instance.
      *
@@ -77,7 +79,8 @@ class DatabaseTableController extends Controller
     public function viewBBCode(string $id)
     {
         $template = Template::findOrFail($id);
-        $returnHTML = view('template.modals.bbcode', ['template' => $template])->render();
+        $bbcode = BBCode::where('template_id', $id)->get()[0];
+        $returnHTML = view('template.modals.bbcode', ['template' => $template, 'bbcode' => $bbcode])->render();
         return response()->json(['msg' => 'OK', 'status' => 200, 'html' => $returnHTML, 'template' => $template]);
     }
 
@@ -106,5 +109,16 @@ class DatabaseTableController extends Controller
         $template = Template::findOrFail($id)->update($inputs);
         if (!$template) return response()->json(['msg' => 'template not updated!']);
         return response()->json(['msg' => 'template updated successfully']);
+    }
+
+    function importBBCode(string $id) {
+        $template = Template::findOrFail($id);
+        $returnHTML = view("template.types.$template->type")->with('template', $template)->render();
+        $bbcode = BBCode::updateOrCreate(
+            ['template_id' => $id],
+            ['bbcode' => $returnHTML]
+        );
+        $code = view('template.modals.bbcode', ['template' => $template, 'bbcode' => $bbcode])->render();
+        return response()->json(['msg' => 'OK', 'status' => 200, 'html' => $code]);
     }
 }

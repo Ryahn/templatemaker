@@ -93,11 +93,8 @@ var handleSaveBBCode = function () {
     e.preventDefault();
 
     $.ajax({
-      beforeSend: function (xhr) {
-        xhr.setRequestHeader("Authorization", "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vdGVtcGxhdGUudGVzdC9hcGkvbG9naW4iLCJpYXQiOjE2ODYzNjIwNzAsIm5iZiI6MTY4NjM2MjA3MCwianRpIjoidUVFcXVRS3Qxd3llVGRpQyIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.vWUaMQhKEQ-n8V3D5fgYna233mzNeqBDQSguig5EqDY")
-      },
       type: 'POST',
-      url: '/api/table/view/bbcode/save',
+      url: '/backend/table/view/bbcode/save',
       data: $('#viewBBCodeForm').serialize(),
       success: function (result) {
         $('.toast-body').empty().append(result.msg);
@@ -106,6 +103,27 @@ var handleSaveBBCode = function () {
       }
     });
   })
+};
+
+var handleImportBBCode = function () {
+  $('.show_confirm').click(function(event) {
+    var form =  $(this).closest("form");
+    var name = $(this).data("name");
+    event.preventDefault();
+    swal({
+        title: `Are you sure you want to delete this record?`,
+        text: "If you delete this, it will be gone forever.",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    })
+    .then((willDelete) => {
+      if (willDelete) {
+        form.submit();
+      }
+    });
+});
+
 };
 
 $(document).ready(function () {
@@ -202,6 +220,33 @@ $(document).ready(function () {
     });
 
   });
+
+  $('#recentTemplateTable tbody').on('click', '#import', function () {
+
+    var data_row = templateTable.row($(this).parents('tr')).data(); // here is the change
+      
+      swal({
+          title: `Are you sure you want to import?`,
+          text: "If you import, you will overwrite existing bbcode already generated/saved.",
+          icon: "danger",
+          buttons: true,
+          dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          $.ajax({
+            type: 'GET',
+            url: '/backend/table/import/bbcode/' + data_row.id,
+            success: function (result) {
+              $('#recentModalViewContent').empty().html(result.html);
+              $("#recentViewModal").modal("show");
+            }
+          });
+        }
+      });
+
+  });
+
   $('#recentTemplateTable tbody').on('click', '#edit', function () {
 
     var data_row = templateTable.row($(this).parents('tr')).data(); // here is the change

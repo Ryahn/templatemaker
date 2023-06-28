@@ -68,6 +68,7 @@ Route::prefix('/backend')->group(function () {
     Route::get('/table/view/bbcode/{id}', [DatabaseTableController::class, 'viewBBCode'])->name('api.view.bbcode');
     Route::get('/table/edit/{id}', [DatabaseTableController::class, 'edit'])->name('api.edit.template');
     Route::post('/table/save', [DatabaseTableController::class, 'save'])->name('api.save.template');
+    Route::get('/table/import/bbcode/{id}', [DatabaseTableController::class, 'importBBCode'])->name('api.import.bbcode');
 });
 
 Route::middleware('auth')->group(function() {
