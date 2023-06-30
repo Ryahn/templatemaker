@@ -64,8 +64,8 @@ class Template extends Model
 
     public function setOsSysAttribute($value)
     {
-        if (!$value) return $this->attributes['os'] = null;
-        return $this->attributes['os'] = json_encode($value);
+        if (!$value) return $this->attributes['osSys'] = null;
+        return $this->attributes['osSys'] = json_encode($value);
     }
 
     /**
@@ -140,6 +140,7 @@ class Template extends Model
 
     function setUserThanksAttribute($value) {
         if (!$value) return $this->attributes['userThanks'] = null;
+        if (filter_var($value, FILTER_VALIDATE_URL)) return $this->attributes['userThanks'] = $value;
         $parts = explode(']', $value);
         $id = explode('=', $parts[0])[1];
         $user = explode('[', $parts[1])[0];
@@ -158,6 +159,7 @@ class Template extends Model
     public function setPrequelAttribute($value)
     {
         if (!$value) return $this->attributes['prequel'] = null;
+        if (filter_var($value, FILTER_VALIDATE_URL)) return $this->attributes['prequel'] = $value;
         $parts = explode('/', $value);
         $url = explode(']', $parts[4])[0];
         return $this->attributes['prequel'] = "https://f95zone.to/threads/$url";
@@ -176,6 +178,7 @@ class Template extends Model
     public function setSequelAttribute($value)
     {
         if (!$value) return $this->attributes['sequel'] = null;
+        if (filter_var($value, FILTER_VALIDATE_URL)) return $this->attributes['sequel'] = $value;
         $parts = explode('/', $value);
         $url = explode(']', $parts[4])[0];
         return $this->attributes['sequel'] = "https://f95zone.to/threads/$url";
@@ -296,6 +299,7 @@ class Template extends Model
     public function setTrailerAttribute($value)
     {
         if (!$value) return $this->attributes['trailer'] = null;
+        if (filter_var($value, FILTER_VALIDATE_URL)) return $this->attributes['trailer'] = $value;
         $value = strtolower($value);
         $parts = explode('[media=', $value);
         $part1 = explode('[/media]', $parts[1]);

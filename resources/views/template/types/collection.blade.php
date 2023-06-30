@@ -34,6 +34,11 @@ $type = $template->type;
 {{ $template->changelog }}
 [/SPOILER]
 
+[B]Content List[/B]:
+[SPOILER]
+{{ $template->content }}
+[/SPOILER]
+
 [CENTER][SIZE=6][B]Download[/B]:[/SIZE]
 [SIZE=5]LINK - LINK - LINK[/SIZE]
 [SPOILER="Individual"]

@@ -11,6 +11,7 @@ use App\Models\OsSystems;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class DatabaseTableController extends Controller
 {
@@ -87,7 +88,7 @@ class DatabaseTableController extends Controller
     public function edit(string $id)
     {
         $template = Template::findOrFail($id);
-        $returnHTML = view("template.modals.$template->type", ['template' => $template, 'tags' => $this->tags, 'sexual' => $this->sexual, 'assets' => $this->assets, 'nonsexual' => $this->nonsexual, 'technical' => $this->technical, 'languages' => $this->languages, 'os' => $this->os, 'unreal' => $this->unreal, 'blender' => $this->blender, 'none' => $this->none])->render();
+        $returnHTML = view("template.modals.$template->type", ['user' => Auth::user(), 'template' => $template, 'tags' => $this->tags, 'sexual' => $this->sexual, 'assets' => $this->assets, 'nonsexual' => $this->nonsexual, 'technical' => $this->technical, 'languages' => $this->languages, 'os' => $this->os, 'unreal' => $this->unreal, 'blender' => $this->blender, 'none' => $this->none])->render();
         return response()->json(['msg' => 'OK', 'status' => 200, 'html' => $returnHTML, 'template' => $template]);
     }
 

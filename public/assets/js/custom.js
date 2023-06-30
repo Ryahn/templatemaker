@@ -203,6 +203,7 @@ $(document).ready(function () {
       { data: 'game_name', name: 'game_name' },
       { data: 'devName', name: 'devName' },
       { data: 'version', name: 'version' },
+      { data: 'created_by', name: 'created_by' },
       { data: 'action', name: 'action', orderable: false, searchable: false },
     ]
   });

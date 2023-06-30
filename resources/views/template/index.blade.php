@@ -49,6 +49,7 @@
                                             <div class="col-xl-4">{{-- Type --}}
                                                 <div class="form-group mb-3">
                                                     <label class="form-label" for="gameType">Type</label>
+                                                    <input type="hidden" name="created_by" value="{{ Auth::user()->global_name }}">
                                                     <select class="form-select" id="gameType" name="type">
                                                         <option></option>
                                                         <option value="animation">Animation</option>

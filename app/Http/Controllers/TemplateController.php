@@ -154,7 +154,7 @@ class TemplateController extends Controller
     public function recent(Request $request)
     {
         if ($request->ajax()) {
-            $data = Template::select('id', 'type', 'game_name', 'devName', 'version')->orderBy('id', 'DESC')->get();
+            $data = Template::select('id', 'type', 'game_name', 'devName', 'version', 'created_by')->orderBy('id', 'DESC')->get();
             return Datatables::of($data)
             ->addIndexColumn()
                 ->addColumn('action', function($row){

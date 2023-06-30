@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Tags;
+use App\Models\User;
 use App\Models\Software;
 use App\Models\Languages;
 use App\Models\OsSystems;
@@ -19,6 +20,7 @@ class TemplateFactory extends Factory
      */
     public function definition()
     {
+        $user = User::find('72884988374167552');
         $num = random_int(3, 8);
         $num1 = random_int(2, 5);
         $lang = Languages::get('name')->random($num);
@@ -43,10 +45,10 @@ class TemplateFactory extends Factory
             'thread_updated' => Carbon::today()->subDays(rand(0, 180))->format('Y-m-d'),
             'release_date' => Carbon::today()->subDays(rand(0, 180))->format('Y-m-d'),
             'censorship' =>  random_int(1, 5),
-            'langauge' => json_encode($langs),
-            'genre' => json_encode($genres),
-            'osSys' => json_encode($oss),
-            'voiced' => json_encode($langs),
+            'langauge' => $langs,
+            'genre' => $genres,
+            'osSys' => $oss,
+            'voiced' => $langs,
             'prequel' => $f95Url,
             'sequel' => $f95Url,
             'vndb' => $vndbUrl,
@@ -54,17 +56,18 @@ class TemplateFactory extends Factory
             'resolution' => $this->faker->numerify('####x####'),
             'pages' => $this->faker->numerify('###'),
             'content' => $this->faker->paragraph(),
-            'linkAsset' => $f95Url,
-            'compatible' => json_encode($softwares),
+            'compatible' => $softwares,
             'installation' => $this->faker->paragraph(),
             'devNotes' => $this->faker->paragraph(),
             'changelog' => $this->faker->paragraph(),
             'contentList' => $this->faker->paragraph(),
             'included' => $this->faker->paragraph(),
-            'linkAsset' => $url,
-            'devLinks' => $url,
+            // 'linkAsset' => $url,
+            // 'devLinks' => $url,
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'created_by' => $user->global_name,
+            'modified_by' => null
 
         ];
     }

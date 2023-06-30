@@ -16,14 +16,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'Admin',
-            'username' => 'admin',
-            'email' => 'admin@admin.test',
-            'password' => Hash::make('cyber!!11'),
-            'is_admin' => 1,
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s')
-        ]);
+        $user = User::find('72884988374167552');
+        $user->is_admin = 1;
+        $user->save();
     }
 }

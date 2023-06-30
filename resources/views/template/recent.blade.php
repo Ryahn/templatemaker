@@ -49,6 +49,7 @@
                                                         <th>Game Name</th>
                                                         <th>Dev Name</th>
                                                         <th>Version</th>
+                                                        <th>Created By</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>

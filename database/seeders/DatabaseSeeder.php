@@ -14,12 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
         $this->call(GenreSeeder::class);
         $this->call(LanguageSeeder::class);
         $this->call(OsSeeder::class);
         $this->call(SoftwareSeeder::class);
-        // $this->call(UserSeeder::class);
-        $this->call(TemplateSeeder::class);
+        $this->call(UserSeeder::class);
+
+        if (env('APP_ENV') == 'local') {
+            $this->call(TemplateSeeder::class);
+        }
     }
 }

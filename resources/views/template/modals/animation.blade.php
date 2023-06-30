@@ -15,6 +15,7 @@
 <form method="post" id="recentModalForm" action="{{ route('api.save.template') }}">
     <div class="modal-body">
         @csrf
+        <input type="hidden" name="modified_by" value="{{ $user->global_name }}">
         <div class="col-xl-12">
             <div class="row">
                 <div class="col-xl-4">{{-- Type --}}
