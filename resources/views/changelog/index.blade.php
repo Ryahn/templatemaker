@@ -30,6 +30,8 @@
                             <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Upgraded to Laravel 10</li>
                             <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>You are required to be logged in to use the template system</li>
                             <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Login system checks F95 Discord directly for allowed roles</li>
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Added suggestion system</li>
+                            <li class="text-muted ml-3"><i class="mdi mdi-circle-medium mr-2"></i>Revamped sidebar</li>
                         </ul>
 
                         <h5 class="mt-4"> <span class="p-2 bg-gradient.bg-gray-400 border-success rounded text-success"> Version 3.0.7</span>
