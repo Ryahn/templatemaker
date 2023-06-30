@@ -261,5 +261,36 @@ $(document).ready(function () {
     });
   });
 
+  var suggestTable = $('#recentSuggestionTable').DataTable({
+    dom: "<'row mb-3'<'col-sm-4'l><'col-sm-8 text-end'<'d-flex justify-content-end'fB>>>t<'d-flex align-items-center'<'me-auto'i><'mb-0'p>>",
+    processing: true,
+    serverSide: true,
+    responsive: true,
+    order: [[0, "desc"]],
+    ajax: "/suggest/recent",
+    columns: [
+      { data: 'id', name: 'id' },
+      { data: 'type', name: 'type' },
+      { data: 'name', name: 'name' },
+      { data: 'approved', name: 'approved', orderable: false, searchable: false },
+      { data: 'action', name: 'action', orderable: false, searchable: false },
+      { data: 'notes', name: 'notes' },
+      { data: 'requested_by', name: 'requested_by' },
+    ]
+  });
+
+  $('#recentSuggestionTable tbody').on('click', '#approve', function () {
+
+    var data_row = suggestTable.row($(this).parents('tr')).data(); // here is the change
+    $.ajax({
+      type: 'GET',
+      url: '/suggest/approve/' + data_row.id,
+      success: function (data) {
+        $('.toast-body').empty().append(data.msg);
+        $('.toast').toast('show');
+      }
+    });
+  });
+
   
 });

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\TemplatesController;
 use App\Http\Controllers\Backend\DatabaseTableController;
 use App\Http\Controllers\ScrapingController;
+use App\Http\Controllers\SuggestionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,13 @@ Route::middleware('auth')->group(function() {
         Route::post('/bbcode', [TemplateController::class, 'storeBBCode']);
         ROute::get('/recent/store', [TemplateController::class, 'recentEditStore'])->name('recentEditStore');
         Route::get('/', [TemplateController::class, 'index'])->name('maker');
+    });
+
+    Route::prefix('/suggest')->group(function () {
+        Route::get('/', [SuggestionController::class, 'index'])->name('suggest');
+        Route::post('/store', [SuggestionController::class, 'store'])->name('suggest.store');
+        Route::get('/recent', [SuggestionController::class, 'recent'])->name('suggest.recent');
+        Route::get('/approve/{id}', [SuggestionController::class, 'approve'])->name('suggest.approve');
     });
     
     Route::prefix('/backend')->group(function () {

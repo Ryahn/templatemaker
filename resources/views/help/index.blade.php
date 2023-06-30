@@ -66,6 +66,38 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="accordion" id="help3">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading3">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne">
+                                            What does Import BBCode do?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse"
+                                        data-bs-parent="#help3">
+                                        <div class="accordion-body">
+                                            <p>Import BBCode will import BBCode from the database. If another user has modified the BBCode directly, this will overwrite it.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion" id="help4">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="heading4">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne">
+                                            How can I suggest features or additions to this site?
+                                        </button>
+                                    </h2>
+                                    <div id="collapseOne" class="accordion-collapse collapse"
+                                        data-bs-parent="#help4">
+                                        <div class="accordion-body">
+                                            <p>Use <a href="{{ route('suggest') }}">Suggestion</a> system or contact Ryahn on F95Zone discord.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                         <!--end col-->
