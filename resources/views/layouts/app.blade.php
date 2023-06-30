@@ -25,7 +25,6 @@
     </div>
     <!-- END #app -->
 
-    @include('cookie-consent::index')
     @include('partials.scripts')
     @yield('scripts')
 </body>
